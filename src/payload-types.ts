@@ -72,7 +72,7 @@ export interface Config {
     media: Media;
     categories: Category;
     users: User;
-    submissions: Submission;
+    services: Service;
     redirects: Redirect;
     forms: Form;
     'form-submissions': FormSubmission;
@@ -95,7 +95,7 @@ export interface Config {
     media: MediaSelect<false> | MediaSelect<true>;
     categories: CategoriesSelect<false> | CategoriesSelect<true>;
     users: UsersSelect<false> | UsersSelect<true>;
-    submissions: SubmissionsSelect<false> | SubmissionsSelect<true>;
+    services: ServicesSelect<false> | ServicesSelect<true>;
     redirects: RedirectsSelect<false> | RedirectsSelect<true>;
     forms: FormsSelect<false> | FormsSelect<true>;
     'form-submissions': FormSubmissionsSelect<false> | FormSubmissionsSelect<true>;
@@ -783,15 +783,14 @@ export interface Form {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "submissions".
+ * via the `definition` "services".
  */
-export interface Submission {
+export interface Service {
   id: number;
-  name: string;
-  email: string;
-  phone?: string | null;
-  service: 'geometricky-plan' | 'vytycovanie' | 'zameranie-stavby' | 'ine';
-  message: string;
+  title: string;
+  description: string;
+  icon?: ('map' | 'building' | 'ruler' | 'radar') | null;
+  image?: (number | null) | Media;
   updatedAt: string;
   createdAt: string;
 }
@@ -1006,8 +1005,8 @@ export interface PayloadLockedDocument {
         value: number | User;
       } | null)
     | ({
-        relationTo: 'submissions';
-        value: number | Submission;
+        relationTo: 'services';
+        value: number | Service;
       } | null)
     | ({
         relationTo: 'redirects';
@@ -1376,14 +1375,13 @@ export interface UsersSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "submissions_select".
+ * via the `definition` "services_select".
  */
-export interface SubmissionsSelect<T extends boolean = true> {
-  name?: T;
-  email?: T;
-  phone?: T;
-  service?: T;
-  message?: T;
+export interface ServicesSelect<T extends boolean = true> {
+  title?: T;
+  description?: T;
+  icon?: T;
+  image?: T;
   updatedAt?: T;
   createdAt?: T;
 }
