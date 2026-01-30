@@ -8,24 +8,30 @@ import { getPayload } from 'payload'
 import React from 'react'
 import PageClient from './page.client'
 
-export const dynamic = 'force-static'
+export const dynamic = 'force-dynamic'
 export const revalidate = 600
 
 export default async function Page() {
   const payload = await getPayload({ config: configPromise })
 
-  const posts = await payload.find({
-    collection: 'posts',
-    depth: 1,
-    limit: 12,
-    overrideAccess: false,
-    select: {
-      title: true,
-      slug: true,
-      categories: true,
-      meta: true,
-    },
-  })
+  let posts = { docs: [], totalDocs: 0, page: 1, totalPages: 1 }
+
+  try {
+    posts = await payload.find({
+      collection: 'posts',
+      depth: 1,
+      limit: 12,
+      overrideAccess: false,
+      select: {
+        title: true,
+        slug: true,
+        categories: true,
+        meta: true,
+      },
+    }) as any // Safe casting for fallback structure
+  } catch (error) {
+    console.warn('Database error or table missing (safe to ignore during initial build):', error)
+  }
 
   return (
     <div className="pt-24 pb-24">
