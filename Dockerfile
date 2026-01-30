@@ -25,9 +25,13 @@ WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 
-ENV PAYLOAD_SECRET="Automatizacie#2025"
-ENV DATABASE_URL="postgresql://postgres:NJJwIxxFLKNGdHlwhWZQhAMNgRfGCccO@maglev.proxy.rlwy.net:15229/railway"
-ENV NEXT_PUBLIC_SERVER_URL="https://kageodwebside-production.up.railway.app"
+ARG PAYLOAD_SECRET="Automatizacie#2025"
+ARG DATABASE_URL="postgresql://postgres:NJJwIxxFLKNGdHlwhWZQhAMNgRfGCccO@maglev.proxy.rlwy.net:15229/railway"
+ARG NEXT_PUBLIC_SERVER_URL="https://kageodwebside-production.up.railway.app"
+
+ENV PAYLOAD_SECRET=$PAYLOAD_SECRET
+ENV DATABASE_URL=$DATABASE_URL
+ENV NEXT_PUBLIC_SERVER_URL=$NEXT_PUBLIC_SERVER_URL
 
 # Next.js collects completely anonymous telemetry data about general usage.
 # Learn more here: https://nextjs.org/telemetry
