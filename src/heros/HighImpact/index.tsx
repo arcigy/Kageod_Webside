@@ -21,14 +21,14 @@ export const HighImpactHero: React.FC<Page['hero']> = ({ links, media, richText 
       data-theme="dark"
     >
       <div className="container mb-8 z-10 relative flex items-center justify-center">
-        <div className="max-w-[36.5rem] md:text-center">
+        <div className="max-w-[48rem] md:text-center animate-fade-in-up">
           {richText && <RichText className="mb-6" data={richText} enableGutter={false} />}
           {Array.isArray(links) && links.length > 0 && (
-            <ul className="flex md:justify-center gap-4">
+            <ul className="flex md:justify-center gap-4 mt-8">
               {links.map(({ link }, i) => {
                 return (
                   <li key={i}>
-                    <CMSLink {...link} />
+                    <CMSLink {...link} appearance={i === 0 ? 'default' : 'outline'} />
                   </li>
                 )
               })}
@@ -36,9 +36,12 @@ export const HighImpactHero: React.FC<Page['hero']> = ({ links, media, richText 
           )}
         </div>
       </div>
-      <div className="min-h-[80vh] select-none">
+      <div className="min-h-[80vh] select-none relative">
         {media && typeof media === 'object' && (
-          <Media fill imgClassName="-z-10 object-cover" priority resource={media} />
+          <React.Fragment>
+            <Media fill imgClassName="-z-10 object-cover" priority resource={media} />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/30 z-0 pointer-events-none" />
+          </React.Fragment>
         )}
       </div>
     </div>
