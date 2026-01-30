@@ -17,17 +17,17 @@ const seed = async () => {
         {
             title: 'Geometrické plány',
             description: 'Príprava plánov na rozdelenie pozemkov, zameranie stavieb k doplateniu prepisu alebo k hypotéke.',
-            icon: 'map',
+            icon: 'map' as const,
         },
         {
             title: 'Vytyčovanie hraníc',
             description: 'Presné vytýčenie hraníc pozemkov v teréne na základe údajov z katastra nehnuteľností.',
-            icon: 'radar',
+            icon: 'radar' as const,
         },
         {
             title: 'Inžinierska geodézia',
             description: 'Kompletný servis pre stavebníctvo, od predprojektového zamerania až po porealizačné merania.',
-            icon: 'building',
+            icon: 'building' as const,
         }
     ]
 
