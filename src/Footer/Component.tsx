@@ -21,7 +21,8 @@ export async function Footer() {
             <Logo />
           </Link>
           <div className="text-muted-foreground text-sm max-w-xs">
-            <p>Profesionálne geodetické služby vo Zvolene a v celom Banskobystrickom kraji.</p>
+            <p>Geodetická kancelária - Ing. Rastislav Kamenský</p>
+            <p className="mt-2 text-xs">Profesionálne geodetické služby vo Zvolene a v celom Banskobystrickom kraji.</p>
           </div>
         </div>
 
