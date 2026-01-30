@@ -202,7 +202,7 @@ export interface Page {
       | null;
     media?: (number | null) | Media;
   };
-  layout: (CallToActionBlock | ContentBlock | MediaBlock | ArchiveBlock | FormBlock)[];
+  layout: (CallToActionBlock | ContentBlock | MediaBlock | ArchiveBlock | FormBlock | ServicesHighlightBlock)[];
   meta?: {
     title?: string | null;
     /**
@@ -783,6 +783,17 @@ export interface Form {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ServicesHighlightBlock".
+ */
+export interface ServicesHighlightBlock {
+  title?: string | null;
+  selectedServices: (number | Service)[];
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'servicesHighlight';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "services".
  */
 export interface Service {
@@ -1106,6 +1117,7 @@ export interface PagesSelect<T extends boolean = true> {
         mediaBlock?: T | MediaBlockSelect<T>;
         archive?: T | ArchiveBlockSelect<T>;
         formBlock?: T | FormBlockSelect<T>;
+        servicesHighlight?: T | ServicesHighlightBlockSelect<T>;
       };
   meta?:
     | T
@@ -1202,6 +1214,16 @@ export interface FormBlockSelect<T extends boolean = true> {
   form?: T;
   enableIntro?: T;
   introContent?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ServicesHighlightBlock_select".
+ */
+export interface ServicesHighlightBlockSelect<T extends boolean = true> {
+  title?: T;
+  selectedServices?: T;
   id?: T;
   blockName?: T;
 }
