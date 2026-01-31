@@ -21,23 +21,6 @@ export const HeaderClient: React.FC<HeaderClientProps> = ({ data }) => {
   const [hidden, setHidden] = useState(false)
 
   useEffect(() => {
-    let lastScrollY = window.scrollY
-    const handleScroll = () => {
-      const currentScrollY = window.scrollY
-      // Hide dock only when scrolling down fast, show on scroll up
-      if (currentScrollY > lastScrollY && currentScrollY > 100) {
-         setHidden(true)
-      } else {
-         setHidden(false)
-      }
-      lastScrollY = currentScrollY
-    }
-    
-    window.addEventListener('scroll', handleScroll, { passive: true })
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
-
-  useEffect(() => {
     setHeaderTheme(null)
   }, [pathname, setHeaderTheme])
 
@@ -55,11 +38,8 @@ export const HeaderClient: React.FC<HeaderClientProps> = ({ data }) => {
         </div>
       </header>
       
-      {/* Floating Bottom Dock Navigation */}
-      <div className={`fixed bottom-8 left-1/2 -translate-x-1/2 z-50 transition-all duration-500 transform ${
-          hidden ? 'translate-y-[200%] opacity-0' : 'translate-y-0 opacity-100'
-        }`}
-      >
+      {/* Floating Bottom Dock Navigation - Always Visible */}
+      <div className={`fixed bottom-8 left-1/2 -translate-x-1/2 z-50 transition-all duration-500 transform translate-y-0 opacity-100`}>
         <div className="bg-black/20 backdrop-blur-md border border-white/10 px-8 py-4 rounded-full shadow-2xl flex items-center gap-8">
            <HeaderNav data={data} />
         </div>

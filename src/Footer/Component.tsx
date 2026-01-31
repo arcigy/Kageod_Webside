@@ -4,7 +4,7 @@ import React from 'react'
 
 import type { Footer } from '@/payload-types'
 
-import { ThemeSelector } from '@/providers/Theme/ThemeSelector'
+// import { ThemeSelector } from '@/providers/Theme/ThemeSelector'
 import { CMSLink } from '@/components/Link'
 import { Logo } from '@/components/Logo/Logo'
 
@@ -21,10 +21,17 @@ export async function Footer() {
 
   return (
     <footer className="mt-auto border-t border-border bg-[#0a0a0a] text-white relative overflow-hidden">
-      {/* Map visual placeholder - Industrial Tech Style */}
-      <div className="absolute top-0 right-0 w-full md:w-1/2 h-full opacity-10 pointer-events-none">
+      {/* Geodesy Background Image */}
+      <div className="absolute inset-0 z-0 pointer-events-none">
+        <div 
+          className="absolute inset-0 bg-cover bg-center opacity-20"
+          style={{ backgroundImage: 'url("https://images.unsplash.com/photo-1581094794329-c8112a89af12?q=80&w=2000&auto=format&fit=crop")' }} // Geodesy / Technical Surveying vibe
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/90 to-black/80" />
+      </div>
+
+      <div className="absolute top-0 right-0 w-full md:w-1/2 h-full opacity-5 pointer-events-none z-0">
         <div className="w-full h-full bg-[repeating-linear-gradient(45deg,#333_0,#333_1px,transparent_0,transparent_50%)] bg-[length:20px_20px]" />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0a0a0a] via-[#0a0a0a]/80 to-transparent" />
       </div>
 
       <div className="container py-16 md:py-24 relative z-10">
@@ -110,11 +117,8 @@ export async function Footer() {
           </div>
         </div>
 
-        <div className="mt-16 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-gray-600 uppercase tracking-widest">
+        <div className="mt-16 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-white/50 uppercase tracking-widest relative z-20">
             <p>&copy; {new Date().getFullYear()} KAGEOD s.r.o. Všetky práva vyhradené.</p>
-            <div className="flex gap-4">
-              <ThemeSelector />
-            </div>
         </div>
       </div>
     </footer>
