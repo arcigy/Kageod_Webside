@@ -134,6 +134,18 @@ export async function GET() {
                                 version: 1
                             }
                         }
+                    },
+                    {
+                        size: 'oneThird',
+                        richText: {
+                            root: {
+                                type: 'root',
+                                children: [
+                                   { type: 'paragraph', children: [{ text: '%%MAP%%', type: 'text', version: 1 }], version: 1 }
+                                ],
+                                version: 1
+                            }
+                        }
                     }
                 ]
             }

@@ -18,14 +18,15 @@ export const ContentBlock: React.FC<ContentBlockProps> = (props) => {
 
   return (
     <div className="container py-24 md:py-32 relative overflow-hidden">
-      {/* Technical grid vertical marker */}
-      <div className="absolute left-0 top-0 w-[2px] h-full bg-primary" />
       
       <div className="grid grid-cols-4 lg:grid-cols-12 gap-y-12 gap-x-8 lg:gap-x-12 items-stretch">
         {columns &&
           columns.length > 0 &&
           columns.map((col, index) => {
             const { enableLink, link, richText, size } = col
+
+            // Hack to inject map if placeholder is found
+            const hasMapPlaceholder = JSON.stringify(richText).includes('%%MAP%%')
 
             return (
               <div
@@ -38,15 +39,29 @@ export const ContentBlock: React.FC<ContentBlockProps> = (props) => {
                   {/* Technical corner accent */}
                   <div className="absolute top-0 right-0 w-8 h-8 border-t border-r border-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-tr-lg" />
                   
-                  <div className="relative z-10">
-                    {richText && (
-                      <div className="[&_h2]:text-2xl md:[&_h2]:text-3xl [&_h2]:font-black [&_h2]:mb-8 [&_h2]:uppercase [&_h2]:tracking-tight [&_h3]:text-lg [&_h3]:font-bold [&_h3]:mb-4 [&_h3]:uppercase [&_p]:text-foreground/60 [&_p]:leading-relaxed [&_li]:text-foreground/50 [&_li]:mb-3">
-                        <RichText data={richText} enableGutter={false} />
+                  <div className="relative z-10 w-full">
+                    {hasMapPlaceholder ? (
+                      <div className="w-full h-[400px] rounded-lg overflow-hidden border border-white/10 grayscale hover:grayscale-0 transition-all duration-500">
+                         <iframe 
+                           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2633.585526842605!2d19.14155!3d48.5833!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47153b689a7f5a57%3A0x400f7d1c6978500!2sNeresnick%C3%A1%20cesta%203%2C%20960%2001%20Zvolen!5e0!3m2!1sen!2ssk!4v1709212345678!5m2!1sen!2ssk"
+                           width="100%" 
+                           height="100%" 
+                           style={{ border: 0 }} 
+                           allowFullScreen 
+                           loading="lazy" 
+                           referrerPolicy="no-referrer-when-downgrade"
+                         />
                       </div>
+                    ) : (
+                      richText && (
+                        <div className="[&_h2]:text-2xl md:[&_h2]:text-3xl [&_h2]:font-black [&_h2]:mb-8 [&_h2]:uppercase [&_h2]:tracking-tight [&_h3]:text-lg [&_h3]:font-bold [&_h3]:mb-4 [&_h3]:uppercase [&_p]:text-foreground/60 [&_p]:leading-relaxed [&_li]:text-foreground/50 [&_li]:mb-3">
+                          <RichText data={richText} enableGutter={false} />
+                        </div>
+                      )
                     )}
                   </div>
 
-                  {enableLink && (
+                  {enableLink && !hasMapPlaceholder && (
                     <div className="mt-12 pt-8 border-t border-white/5 relative z-10">
                       <CMSLink 
                         {...link} 

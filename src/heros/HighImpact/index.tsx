@@ -24,10 +24,13 @@ export const HighImpactHero: React.FC<Page['hero']> = ({ links, media, richText 
       className="relative -mt-[10.4rem] flex flex-col justify-center min-h-[95vh] text-white overflow-hidden"
       data-theme="dark"
     >
-      <div className="container z-10 relative pt-32 md:pt-0">
+      <div className="container z-10 relative pt-40 md:pt-32">
         <div 
-          className="max-w-[62rem] animate-fade-in-up transition-transform duration-300 ease-out"
-          style={{ transform: `translateY(${scrollY * 0.2}px)`, opacity: Math.max(0, 1 - scrollY / 700) }}
+          className="max-w-[62rem] animate-fade-in-up transition-transform duration-100 ease-out will-change-transform"
+          style={{ 
+            transform: `scale(${Math.max(0.9, 1 - scrollY / 2000)})`, 
+            opacity: Math.max(0, 1 - scrollY / 500) 
+          }}
         >
           {/* Top Badge: Technical, clean */}
           <div className="inline-flex items-center gap-3 px-4 py-1.5 mb-10 bg-primary/10 border-l-2 border-primary">
