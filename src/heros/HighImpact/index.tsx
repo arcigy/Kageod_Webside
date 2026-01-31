@@ -8,6 +8,7 @@ import { CMSLink } from '@/components/Link'
 import { Media } from '@/components/Media'
 import RichText from '@/components/RichText/Simple'
 
+export const HighImpactHero: React.FC<Page['hero']> = ({ links, media, richText }) => {
   const [scrollY, setScrollY] = React.useState(0)
 
   React.useEffect(() => {
