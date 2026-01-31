@@ -17,14 +17,14 @@ export const HighImpactHero: React.FC<Page['hero']> = ({ links, media, richText 
 
   return (
     <div
-      className="relative -mt-[10.4rem] flex items-center justify-center text-white"
+      className="relative -mt-[10.4rem] flex flex-col justify-center min-h-screen text-white overflow-hidden"
       data-theme="dark"
     >
-      <div className="container mb-8 z-10 relative flex items-center justify-center">
-        <div className="max-w-[48rem] md:text-center animate-fade-in-up">
+      <div className="container z-10 relative">
+        <div className="max-w-[48rem] animate-fade-in-up">
           {richText && <RichText className="mb-6" data={richText} enableGutter={false} />}
           {Array.isArray(links) && links.length > 0 && (
-            <ul className="flex md:justify-center gap-4 mt-8">
+            <ul className="flex gap-4 mt-8">
               {links.map(({ link }, i) => {
                 return (
                   <li key={i}>
@@ -36,11 +36,11 @@ export const HighImpactHero: React.FC<Page['hero']> = ({ links, media, richText 
           )}
         </div>
       </div>
-      <div className="min-h-[80vh] select-none relative">
+      <div className="absolute inset-0 select-none z-0">
         {media && typeof media === 'object' && (
           <React.Fragment>
-            <Media fill imgClassName="-z-10 object-cover" priority resource={media} />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/30 z-0 pointer-events-none" />
+            <Media fill imgClassName="object-cover" priority resource={media} />
+            <div className="absolute inset-0 bg-black/60 z-0 pointer-events-none" />
           </React.Fragment>
         )}
       </div>

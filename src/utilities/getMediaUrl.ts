@@ -1,4 +1,4 @@
-import { getClientSideURL } from '@/utilities/getURL'
+// No imports needed for relative paths
 
 /**
  * Processes media resource URL to ensure proper formatting
@@ -18,7 +18,6 @@ export const getMediaUrl = (url: string | null | undefined, cacheTag?: string | 
     return cacheTag ? `${url}?${cacheTag}` : url
   }
 
-  // Otherwise prepend client-side URL
-  const baseUrl = getClientSideURL()
-  return cacheTag ? `${baseUrl}${url}?${cacheTag}` : `${baseUrl}${url}`
+  // Otherwise use relative URL (safer for Next.js internal media)
+  return cacheTag ? `${url}?${cacheTag}` : url
 }
