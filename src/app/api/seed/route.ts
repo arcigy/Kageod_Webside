@@ -45,7 +45,7 @@ export async function GET() {
       return media.id
     }
 
-    const heroImageId = await uploadMedia('hero-sunset.png', 'Geodetický prístroj pri západe slnka')
+    const heroImageId = await uploadMedia('hero-sunset-nanabanana.png', 'Geodetický prístroj pri západe slnka - 4K')
     const servicesImageId = await uploadMedia('services-main.png', 'Geodetické plány a merania')
     const contactImageId = await uploadMedia('contact-main.png', 'Geodetická kancelária KAGEOD')
 
