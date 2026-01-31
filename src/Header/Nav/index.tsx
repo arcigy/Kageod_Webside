@@ -1,6 +1,7 @@
 'use client'
 
 import React from 'react'
+import { useRouter } from 'next/navigation'
 
 import type { Header as HeaderType } from '@/payload-types'
 
@@ -9,11 +10,20 @@ import { CMSLink } from '@/components/Link'
 export const HeaderNav: React.FC<{ data: HeaderType }> = ({ data }) => {
   const navItems = data?.navItems || []
   
+  const router = useRouter()
+  
   // Helper for smooth scroll to top if active
-  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
-    if (typeof window !== 'undefined' && window.location.pathname === href) {
-      e.preventDefault()
-      window.scrollTo({ top: 0, behavior: 'smooth' })
+  const handleClick = (e: React.MouseEvent<HTMLDivElement>, href: string) => {
+    // If it's the home link, always scroll to top
+    if (href === '/' || href === '') {
+       window.scrollTo({ top: 0, behavior: 'smooth' })
+       
+       // If we are not on home, navigate there
+       if (window.location.pathname !== '/') {
+          // let Link handle it or trigger router
+       } else {
+          e.preventDefault() // prevent full reload/navigation if already on home
+       }
     }
   }
 

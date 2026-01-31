@@ -70,15 +70,19 @@ export const HighImpactHero: React.FC<Page['hero']> = ({ links, media, richText 
       {/* Background with decorative elements */}
       <div 
         className="absolute inset-0 select-none z-0 reflection-effect"
-        style={{ transform: `scale(${Math.max(0.5, 1 - scrollY / 1500)})` }} // Aggressive zoom out
+        style={{ transform: `scale(${Math.max(0.7, 1 - scrollY / 1500)})` }} // Restored gentle zoom
       >
-        {media && typeof media === 'object' && (
-          <React.Fragment>
-            <Media fill imgClassName="object-cover" priority resource={media} />
-            <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent z-0" />
-            <div className="absolute inset-0 bg-black/40 z-0" />
-          </React.Fragment>
-        )}
+        <div className="relative w-full h-full">
+            {/* Hardcoded 4K Geodesy Hero Image override as requested */}
+            <React.Fragment>
+                <div 
+                    className="absolute inset-0 bg-cover bg-center z-0"
+                    style={{ backgroundImage: 'url("https://images.unsplash.com/photo-1581093458891-b9a35e076643?q=80&w=2670&auto=format&fit=crop")' }} 
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent z-10" />
+                <div className="absolute inset-0 bg-black/30 z-10" />
+            </React.Fragment>
+        </div>
       </div>
 
       {/* Decorative side line for technical feel */}
