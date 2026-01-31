@@ -15,8 +15,8 @@ export async function GET() {
 
     const uploadMedia = async (fileName: string, alt: string) => {
       // In Docker/Next.js standalone, process.cwd() is /app
-      // Public folder is copied to /app/public
-      const filePath = path.resolve(process.cwd(), 'public/media', fileName)
+      // We use public/seed-assets because public/media is gitignored
+      const filePath = path.resolve(process.cwd(), 'public/seed-assets', fileName)
       
       if (!fs.existsSync(filePath)) {
         console.warn(`File not found: ${filePath}`)
