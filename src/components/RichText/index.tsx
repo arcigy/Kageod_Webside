@@ -1,4 +1,14 @@
-import { MediaBlock } from '@/blocks/MediaBlock/Component'
+'use client'
+
+import dynamic from 'next/dynamic'
+
+const MediaBlock = dynamic(() => import('@/blocks/MediaBlock/Component').then((mod) => mod.MediaBlock))
+const BannerBlock = dynamic(() => import('@/blocks/Banner/Component').then((mod) => mod.BannerBlock))
+const CodeBlock = dynamic(() => import('@/blocks/Code/Component').then((mod) => mod.CodeBlock))
+const CallToActionBlock = dynamic(() =>
+  import('@/blocks/CallToAction/Component').then((mod) => mod.CallToActionBlock),
+)
+
 import {
   DefaultNodeTypes,
   SerializedBlockNode,
@@ -11,15 +21,13 @@ import {
   RichText as ConvertRichText,
 } from '@payloadcms/richtext-lexical/react'
 
-import { CodeBlock, CodeBlockProps } from '@/blocks/Code/Component'
+import type { CodeBlockProps } from '@/blocks/Code/Component'
 
 import type {
   BannerBlock as BannerBlockProps,
   CallToActionBlock as CTABlockProps,
   MediaBlock as MediaBlockProps,
 } from '@/payload-types'
-import { BannerBlock } from '@/blocks/Banner/Component'
-import { CallToActionBlock } from '@/blocks/CallToAction/Component'
 import { cn } from '@/utilities/ui'
 
 type NodeTypes =

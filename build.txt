@@ -1,0 +1,43 @@
+npm warn Unknown project config "enable-pre-post-scripts". This will stop working in the next major version of npm.
+
+> kageod@1.0.0 build
+> cross-env NODE_OPTIONS=--no-deprecation next build
+
+   ▲ Next.js 15.4.11
+   - Environments: .env
+
+   Creating an optimized production build ...
+ ✓ Compiled successfully in 38.0s
+   Linting and checking validity of types ...
+
+./src/app/(frontend)/posts/page.tsx
+31:11  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+
+./src/collections/Posts/hooks/populateAuthors.ts
+8:71  Warning: 'req' is defined but never used. Allowed unused args must match /^_/u.  @typescript-eslint/no-unused-vars
+
+./src/components/Logo/Logo.tsx
+18:7  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+./src/seed-kageod.ts
+22:15  Warning: 'logo' is assigned a value but never used. Allowed unused vars must match /^_/u.  @typescript-eslint/no-unused-vars
+27:15  Warning: 'hero' is assigned a value but never used. Allowed unused vars must match /^_/u.  @typescript-eslint/no-unused-vars
+32:15  Warning: 'services' is assigned a value but never used. Allowed unused vars must match /^_/u.  @typescript-eslint/no-unused-vars
+151:17  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+
+info  - Need to disable some ESLint rules? Learn more here: https://nextjs.org/docs/app/api-reference/config/eslint#disabling-rules
+Failed to compile.
+
+./create-homepage.ts:30:43
+Type error: Argument of type '{ collection: "pages"; data: { title: string; slug: string; _status: "published"; layout: { blockType: "content"; columns: { size: "full"; richText: { root: { type: string; direction: "ltr"; format: ""; indent: number; version: number; children: ({ ...; } | ... 1 more ... | { ...; })[]; }; }; }[]; }[]; }; }' is not assignable to parameter of type 'Options<"pages", PagesSelect<false> | PagesSelect<true>>'.
+  Type '{ collection: "pages"; data: { title: string; slug: string; _status: "published"; layout: { blockType: "content"; columns: { size: "full"; richText: { root: { type: string; direction: "ltr"; format: ""; indent: number; version: number; children: ({ ...; } | ... 1 more ... | { ...; })[]; }; }; }[]; }[]; }; }' is not assignable to type '{ data: DraftDataFromCollectionSlug<"pages">; draft: true; } & BaseOptions<"pages", PagesSelect<false> | PagesSelect<true>>'.
+    Property 'draft' is missing in type '{ collection: "pages"; data: { title: string; slug: string; _status: "published"; layout: { blockType: "content"; columns: { size: "full"; richText: { root: { type: string; direction: "ltr"; format: ""; indent: number; version: number; children: ({ ...; } | ... 1 more ... | { ...; })[]; }; }; }[]; }[]; }; }' but required in type '{ data: DraftDataFromCollectionSlug<"pages">; draft: true; }'.
+
+[0m [90m 28 |[39m
+ [90m 29 |[39m     console[33m.[39mlog([32m'Creating new home page...'[39m)
+[31m[1m>[22m[39m[90m 30 |[39m     [36mconst[39m homePage [33m=[39m [36mawait[39m payload[33m.[39mcreate({
+ [90m    |[39m                                           [31m[1m^[22m[39m
+ [90m 31 |[39m         collection[33m:[39m [32m'pages'[39m[33m,[39m
+ [90m 32 |[39m         data[33m:[39m {
+ [90m 33 |[39m             title[33m:[39m [32m'Domov'[39m[33m,[39m[0m
+Next.js build worker exited with code: 1 and signal: null
