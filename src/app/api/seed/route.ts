@@ -74,7 +74,7 @@ export async function GET() {
         }
     }
 
-    // 1. HOME - Professional Copy
+    // 1. HOME - Modern Professional Copy
     await upsertPage('home', {
         title: 'Domov',
         hero: {
@@ -87,12 +87,12 @@ export async function GET() {
                         {
                             type: 'heading',
                             tag: 'h1',
-                            children: [{ text: 'Vaša istota v meraní a katastri nehnuteľností', type: 'text', version: 1 }],
+                            children: [{ text: 'Vaša istota v meraní a katastri už od roku 1990', type: 'text', version: 1 }],
                             version: 1
                         },
                         {
                             type: 'paragraph',
-                            children: [{ text: 'Geodetická kancelária KAGEOD s.r.o. poskytuje spoľahlivé služby vo Zvolene a v celom regióne už dlhé roky. Od vytýčenia pozemku po komplexné geometrické plány.', type: 'text', version: 1 }],
+                            children: [{ text: 'Geodetická kancelária KAGEOD s.r.o. vo Zvolene. Spájame 35 rokov skúseností s najmodernejšou technológiou pre Vaše projekty.', type: 'text', version: 1 }],
                             version: 1
                         }
                     ],
@@ -101,7 +101,7 @@ export async function GET() {
             },
             links: [
                 { link: { type: 'custom', url: '/sluzby', label: 'Naše Služby', appearance: 'default' } },
-                { link: { type: 'custom', url: '/kontakt', label: 'Rýchly Kontakt', appearance: 'outline' } }
+                { link: { type: 'custom', url: '/kontakt', label: 'Získať Ponuku', appearance: 'outline' } }
             ]
         },
         layout: [
@@ -117,7 +117,7 @@ export async function GET() {
                                     {
                                         type: 'heading',
                                         tag: 'h2',
-                                        children: [{ text: 'Prečo si vybrať KAGEOD?', type: 'text', version: 1 }],
+                                        children: [{ text: 'Precíznosť, ktorej môžete dôverovať', type: 'text', version: 1 }],
                                         version: 1
                                     },
                                     {
@@ -127,7 +127,7 @@ export async function GET() {
                                     },
                                     {
                                         type: 'paragraph',
-                                        children: [{ text: 'Sme vybavení modernou meracou technikou, ktorá nám umožňuje pracovať efektívne a s minimálnymi odchýlkami. Naši klienti oceňujú nielen technickú kvalitu, ale aj profesionálne poradenstvo pri riešení komplikovaných majetkovoprávnych vzťahov.', type: 'text', version: 1 }],
+                                        children: [{ text: 'V Kageod spájame hlboké odborné znalosti s moderným prístupom. Neustále sledujeme zmeny v legislatíve a investujeme do najnovších prístrojov značiek Leica a Trimble, aby sme Vám dodali výsledky v milimetrovej presnosti a v rekordnom čase.', type: 'text', version: 1 }],
                                         version: 1
                                     }
                                 ],
@@ -140,7 +140,7 @@ export async function GET() {
         ]
     })
 
-    // 2. SERVICES - Detailed from kageod.sk
+    // 2. SERVICES - Refined
     await upsertPage('sluzby', {
         title: 'Naše Služby',
         hero: {
@@ -153,12 +153,12 @@ export async function GET() {
                         {
                             type: 'heading',
                             tag: 'h1',
-                            children: [{ text: 'Komplexné Geodetické Služby', type: 'text', version: 1 }],
+                            children: [{ text: 'Profesionálne Geodetické Služby', type: 'text', version: 1 }],
                             version: 1
                         },
                         {
                             type: 'paragraph',
-                            children: [{ text: 'Zabezpečujeme servis pre súkromné osoby, stavebné firmy aj verejný sektor.', type: 'text', version: 1 }],
+                            children: [{ text: 'Kompletný servis pre jednotlivcov, stavebné spoločnosti aj štátnu správu.', type: 'text', version: 1 }],
                             version: 1
                         }
                     ],
@@ -176,12 +176,13 @@ export async function GET() {
                             root: {
                                 type: 'root',
                                 children: [
-                                    { type: 'heading', tag: 'h2', children: [{ text: 'Kataster nehnuteľností', type: 'text', version: 1 }], version: 1 },
+                                    { type: 'heading', tag: 'h2', children: [{ text: 'Kataster Nehnuteľností', type: 'text', version: 1 }], version: 1 },
+                                    { type: 'paragraph', children: [{ text: 'Zabezpečujeme precízne podklady pre všetky právne úkony súvisiace s vlastníctvom a správou pozemkov.', type: 'text', version: 1 }], version: 1 },
                                     { type: 'list', listType: 'bullet', children: [
-                                        { type: 'listitem', children: [{ text: 'Geometrické plány na rozdelenie/scelenie pozemkov', type: 'text', version: 1 }], version: 1 },
-                                        { type: 'listitem', children: [{ text: 'Zameranie stavieb pre kolaudáciu a zápis do KN', type: 'text', version: 1 }], version: 1 },
-                                        { type: 'listitem', children: [{ text: 'Vytýčenie hraníc pozemkov a riešenie sporov', type: 'text', version: 1 }], version: 1 },
-                                        { type: 'listitem', children: [{ text: 'Zápis vecného bremena (právo prechodu/prejazdu)', type: 'text', version: 1 }], version: 1 }
+                                        { type: 'listitem', children: [{ text: 'Geometrické plány na rozdelenie a scelenie', type: 'text', version: 1 }], version: 1 },
+                                        { type: 'listitem', children: [{ text: 'Zameranie ku kolaudácii rodinných domov', type: 'text', version: 1 }], version: 1 },
+                                        { type: 'listitem', children: [{ text: 'Vytýčenie hraníc pozemkov a riešenie susedských sporov', type: 'text', version: 1 }], version: 1 },
+                                        { type: 'listitem', children: [{ text: 'Zamerania pre vecné bremená (právo prechodu)', type: 'text', version: 1 }], version: 1 }
                                     ], version: 1 }
                                 ],
                                 version: 1
@@ -194,12 +195,13 @@ export async function GET() {
                             root: {
                                 type: 'root',
                                 children: [
-                                    { type: 'heading', tag: 'h2', children: [{ text: 'Inžinierska geodézia', type: 'text', version: 1 }], version: 1 },
+                                    { type: 'heading', tag: 'h2', children: [{ text: 'Inžinierska Geodézia', type: 'text', version: 1 }], version: 1 },
+                                    { type: 'paragraph', children: [{ text: 'Technická podpora pri výstavbe od prvého výkopu až po kontrolné merania skutočného vyhotovenia.', type: 'text', version: 1 }], version: 1 },
                                     { type: 'list', listType: 'bullet', children: [
-                                        { type: 'listitem', children: [{ text: 'Vytýčenie základov stavieb a osí objektov', type: 'text', version: 1 }], version: 1 },
-                                        { type: 'listitem', children: [{ text: 'Polohopisné a výškopisné podklady pre projekty', type: 'text', version: 1 }], version: 1 },
-                                        { type: 'listitem', children: [{ text: 'Zameranie inžinierskych sietí pre kolaudáciu', type: 'text', version: 1 }], version: 1 },
-                                        { type: 'listitem', children: [{ text: 'Kontrolné merania a sledovanie posunov stavby', type: 'text', version: 1 }], version: 1 }
+                                        { type: 'listitem', children: [{ text: 'Polohopisné a výškopisné podklady pre projektov', type: 'text', version: 1 }], version: 1 },
+                                        { type: 'listitem', children: [{ text: 'Vytýčenie základov a osí stavieb', type: 'text', version: 1 }], version: 1 },
+                                        { type: 'listitem', children: [{ text: 'Zameranie inžinierskych sietí pre kolaudačný proces', type: 'text', version: 1 }], version: 1 },
+                                        { type: 'listitem', children: [{ text: 'Kontrolné merania a sledovanie posunov objektov', type: 'text', version: 1 }], version: 1 }
                                     ], version: 1 }
                                 ],
                                 version: 1
@@ -211,9 +213,9 @@ export async function GET() {
         ]
     })
 
-    // 3. REFERENCES - Professional Example Projects
+    // 3. REFERENCES - Integrating History and Context
     await upsertPage('referencie', {
-        title: 'Realizované Projekty',
+        title: 'Referencie a Skúsenosti',
         hero: {
             type: 'mediumImpact',
             media: referencesImageId,
@@ -224,12 +226,12 @@ export async function GET() {
                         {
                             type: 'heading',
                             tag: 'h1',
-                            children: [{ text: 'Naše Referencie', type: 'text', version: 1 }],
+                            children: [{ text: '35 Rokov Skúseností v Geodézii', type: 'text', version: 1 }],
                             version: 1
                         },
                         {
                             type: 'paragraph',
-                            children: [{ text: 'Stovky úspešných meraní pre rodinné domy, bytové komplexy a priemyselné stavby.', type: 'text', version: 1 }],
+                            children: [{ text: 'Stovky spokojných klientov a tisícky úspešných meraní od nášho založenia v roku 1990.', type: 'text', version: 1 }],
                             version: 1
                         }
                     ],
@@ -247,16 +249,30 @@ export async function GET() {
                             root: {
                                 type: 'root',
                                 children: [
-                                    { type: 'heading', tag: 'h2', children: [{ text: 'Vybrané kategórie prác', type: 'text', version: 1 }], version: 1 },
-                                    { type: 'paragraph', children: [{ text: 'Dlhodobo spolupracujeme s významnými partnermi v regióne stredného Slovenska. Naša práca je overená rokmi praxe v náročných terénoch aj komplikovaných katastrálnych územiach.', type: 'text', version: 1 }], version: 1 },
+                                    { type: 'heading', tag: 'h2', children: [{ text: 'Naša História a Tradícia', type: 'text', version: 1 }], version: 1 },
+                                    { type: 'paragraph', children: [{ text: 'Geodetickú kanceláriu Kageod sme vo Zvolene založili už v roku 1990. Pod súčasným názvom sa poskytovaniu geodetických služieb venujeme už pekných pár rokov a za túto dobu sme stihli získať stovky spokojných klientov. Z veľkej časti ide o jednotlivcov, pravidelne ale spolupracujeme i s verejnými inštitúciami, firmami a drobnými podnikateľmi alebo so stavebnými spoločnosťami priamo vo Zvolene i v jeho širokom okolí.', type: 'text', version: 1 }], version: 1 },
+                                    { type: 'paragraph', children: [{ text: 'Teší nás, že na svoje služby dostávame pravidelne pozitívne ohlasy takpovediac od všetkých našich klientov. Napriek tomu sa neustále snažíme svoju prácu zlepšovať a aktívne sledujeme zmeny v legislatíve, ktoré sa nášho odboru týkajú, i novo dostupné nástroje a technológie.', type: 'text', version: 1 }], version: 1 },
+                                    { type: 'paragraph', children: [{ text: 'Preto, že pracujeme s klientmi, ktorí majú veľmi rôznorodé potreby, snažíme sa mať čomožno najširší záber a vedieť uspokojiť i tie najnáročnejšie požiadavky. Veríme, že so spoločnosťou Kageod budete spokojní aj Vy.', type: 'text', version: 1 }], version: 1 }
+                                ],
+                                version: 1
+                            }
+                        }
+                    },
+                    {
+                        size: 'full',
+                        richText: {
+                            root: {
+                                type: 'root',
+                                children: [
+                                    { type: 'heading', tag: 'h2', children: [{ text: 'Vybrané Referenčné Projekty', type: 'text', version: 1 }], version: 1 },
                                     {
                                         type: 'list',
                                         listType: 'bullet',
                                         children: [
-                                            { type: 'listitem', children: [{ text: 'Zamerania stoviek rodinných domov v okrese Zvolen, Banská Bystrica a Detva.', type: 'text', version: 1 }], version: 1 },
-                                            { type: 'listitem', children: [{ text: 'Geometrické plány pre rozsiahle pozemkové úpravy a scelovanie pôdy.', type: 'text', version: 1 }], version: 1 },
-                                            { type: 'listitem', children: [{ text: 'Komplexná podpora pre výstavbu infraštruktúry a inžinierskych sietí.', type: 'text', version: 1 }], version: 1 },
-                                            { type: 'listitem', children: [{ text: 'Vytýčenie hraníc pozemkov pre priemyselné parky a logistické centrá.', type: 'text', version: 1 }], version: 1 }
+                                            { type: 'listitem', children: [{ text: 'Komplexné zamerania pre rodinnú výstavbu v okrese Zvolen, Banská Bystrica a Detva.', type: 'text', version: 1 }], version: 1 },
+                                            { type: 'listitem', children: [{ text: 'Geometrické plány pre pozemkové úpravy a scelovanie pôdy pre súkromných vlastníkov.', type: 'text', version: 1 }], version: 1 },
+                                            { type: 'listitem', children: [{ text: 'Dlhodobá spolupráca s regionálnymi stavebnými firmami na inžinierskych stavbách.', type: 'text', version: 1 }], version: 1 },
+                                            { type: 'listitem', children: [{ text: 'Vytýčenie hraníc pozemkov pre priemyselné a logistické celky v regióne.', type: 'text', version: 1 }], version: 1 }
                                         ],
                                         version: 1
                                     }
@@ -270,9 +286,9 @@ export async function GET() {
         ]
     })
 
-    // 4. CONTACT - Correct Address
+    // 4. CONTACT
     await upsertPage('kontakt', {
-        title: 'Kontaktujte Nás',
+        title: 'Kontaktujte KAGEOD',
         hero: {
             type: 'mediumImpact',
             media: contactImageId,
@@ -280,8 +296,8 @@ export async function GET() {
                 root: {
                     type: 'root',
                     children: [
-                        { type: 'heading', tag: 'h1', children: [{ text: 'Získajte Cenovú Ponuku', type: 'text', version: 1 }], version: 1 },
-                        { type: 'paragraph', children: [{ text: 'Sme Vám k dispozícii v našej kancelárii vo Zvolene.', type: 'text', version: 1 }], version: 1 }
+                        { type: 'heading', tag: 'h1', children: [{ text: 'Sme tu pre Vás vo Zvolene', type: 'text', version: 1 }], version: 1 },
+                        { type: 'paragraph', children: [{ text: 'Získajte nezáväznú cenovú ponuku pre Váša projekt ešte dnes.', type: 'text', version: 1 }], version: 1 }
                     ],
                     version: 1
                 }
@@ -297,7 +313,7 @@ export async function GET() {
                             root: {
                                 type: 'root',
                                 children: [
-                                    { type: 'heading', tag: 'h3', children: [{ text: 'Adresa Kancelárie', type: 'text', version: 1 }], version: 1 },
+                                    { type: 'heading', tag: 'h3', children: [{ text: 'Kancelária', type: 'text', version: 1 }], version: 1 },
                                     { type: 'paragraph', children: [{ text: 'KAGEOD s.r.o.\nNeresnická cesta 3\n(budova STRABAG)\n960 51 Zvolen', type: 'text', version: 1 }], version: 1 }
                                 ],
                                 version: 1
@@ -310,8 +326,8 @@ export async function GET() {
                             root: {
                                 type: 'root',
                                 children: [
-                                    { type: 'heading', tag: 'h3', children: [{ text: 'Telefón / Email', type: 'text', version: 1 }], version: 1 },
-                                    { type: 'paragraph', children: [{ text: '+421 903 567 411\nkageod@kageod.sk', type: 'text', version: 1 }], version: 1 }
+                                    { type: 'heading', tag: 'h3', children: [{ text: 'Kontakt', type: 'text', version: 1 }], version: 1 },
+                                    { type: 'paragraph', children: [{ text: 'Telefón: +421 903 567 411\nEmail: kageod@kageod.sk', type: 'text', version: 1 }], version: 1 }
                                 ],
                                 version: 1
                             }
@@ -323,8 +339,8 @@ export async function GET() {
                             root: {
                                 type: 'root',
                                 children: [
-                                    { type: 'heading', tag: 'h3', children: [{ text: 'Úradné Hodiny', type: 'text', version: 1 }], version: 1 },
-                                    { type: 'paragraph', children: [{ text: 'Po - Pi: 08:00 - 15:30\n\nVzhľadom na terénne práce odporúčame termín vopred dohodnúť.', type: 'text', version: 1 }], version: 1 }
+                                    { type: 'heading', tag: 'h3', children: [{ text: 'Otváracie Hodiny', type: 'text', version: 1 }], version: 1 },
+                                    { type: 'paragraph', children: [{ text: 'Pondelok - Piatok: 08:00 - 15:30\n\nOdporúčame vopred dohodnúť termín telefonicky.', type: 'text', version: 1 }], version: 1 }
                                 ],
                                 version: 1
                             }
@@ -335,7 +351,7 @@ export async function GET() {
         ]
     })
 
-    // 5. Global Header
+    // 5. Global Header Seeding
     await payload.updateGlobal({
         slug: 'header',
         data: {
@@ -348,7 +364,7 @@ export async function GET() {
         },
     })
 
-    return NextResponse.json({ success: true, message: 'Official Kageod content seeded successfully' })
+    return NextResponse.json({ success: true, message: 'Official Kageod Masterpiece seeded successfully' })
   } catch (error: any) {
     console.error('Seed error:', error)
     return NextResponse.json({ success: false, error: error.message }, { status: 500 })
