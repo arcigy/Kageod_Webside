@@ -6,7 +6,7 @@ import type { Footer } from '@/payload-types'
 
 // import { ThemeSelector } from '@/providers/Theme/ThemeSelector'
 import { CMSLink } from '@/components/Link'
-import { Logo } from '@/components/Logo/Logo'
+// import { Logo } from '@/components/Logo/Logo'
 
 export async function Footer() {
   let footerData: Footer | null = null
@@ -24,7 +24,7 @@ export async function Footer() {
       {/* Geodesy Background Image */}
       <div className="absolute inset-0 z-0 pointer-events-none">
         <div 
-          className="absolute inset-0 bg-cover bg-center opacity-20"
+          className="absolute inset-0 bg-cover bg-center opacity-10"
           style={{ backgroundImage: 'url("https://images.unsplash.com/photo-1581094794329-c8112a89af12?q=80&w=2000&auto=format&fit=crop")' }} // Geodesy / Technical Surveying vibe
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black via-black/90 to-black/80" />
@@ -40,7 +40,7 @@ export async function Footer() {
           {/* Brand & Quick Links */}
           <div className="lg:col-span-4 flex flex-col gap-8">
             <Link className="flex items-center" href="/">
-              <Logo />
+               <span className="text-2xl font-black uppercase tracking-tighter text-white">KAGEOD</span>
             </Link>
             <div className="text-gray-400 text-sm leading-relaxed max-w-sm">
               <p>Vaša istota v meraní a katastri už od roku 1990. Poskytujeme komplexné geodetické služby pre občanov aj firmy.</p>
