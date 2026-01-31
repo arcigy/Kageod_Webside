@@ -353,164 +353,310 @@ export async function GET() {
 
     // 3. Contact Page - ENHANCED
     const existingContact = await payload.find({
-        collection: 'pages',
-        where: { slug: { equals: 'kontakt' } }
+      collection: 'pages',
+      where: { slug: { equals: 'kontakt' } },
     })
-    
+
     const contactData = {
-        title: 'Kontakt',
-        slug: 'kontakt',
-        _status: 'published' as const,
-        hero: {
-            type: 'mediumImpact',
-            media: contactImageId || undefined,
-            richText: {
-                root: {
-                    type: 'root',
-                    children: [
-                        {
-                            type: 'heading',
-                            tag: 'h1',
-                            children: [{ text: 'Pripravení na spoluprácu', type: 'text', version: 1 }],
-                            version: 1,
-                            direction: 'ltr',
-                            format: '',
-                            indent: 0
-                        },
-                        {
-                            type: 'paragraph',
-                            children: [{ text: 'Neváhajte nás kontaktovať pre nezáväznú cenovú ponuku alebo odbornú konzultáciu.', type: 'text', version: 1 }],
-                            version: 1,
-                            direction: 'ltr',
-                            format: '',
-                            indent: 0
-                        }
-                    ],
-                    direction: 'ltr',
-                    format: '',
-                    indent: 0,
-                    version: 1
-                }
-            }
+      title: 'Kontakt',
+      slug: 'kontakt',
+      _status: 'published' as const,
+      hero: {
+        type: 'mediumImpact',
+        media: contactImageId || undefined,
+        richText: {
+          root: {
+            type: 'root',
+            children: [
+              {
+                type: 'heading',
+                tag: 'h1',
+                children: [{ text: 'Pripravení na spoluprácu', type: 'text', version: 1 }],
+                version: 1,
+                direction: 'ltr',
+                format: '',
+                indent: 0,
+              },
+              {
+                type: 'paragraph',
+                children: [
+                  {
+                    text: 'Neváhajte nás kontaktovať pre nezáväznú cenovú ponuku alebo odbornú konzultáciu.',
+                    type: 'text',
+                    version: 1,
+                  },
+                ],
+                version: 1,
+                direction: 'ltr',
+                format: '',
+                indent: 0,
+              },
+            ],
+            direction: 'ltr',
+            format: '',
+            indent: 0,
+            version: 1,
+          },
         },
-        layout: [
-             {
-                blockType: 'content',
-                columns: [
+      },
+      layout: [
+        {
+          blockType: 'content',
+          columns: [
+            {
+              size: 'oneThird',
+              richText: {
+                root: {
+                  type: 'root',
+                  children: [
                     {
-                        size: 'oneThird',
-                        richText: {
-                            root: {
-                                type: 'root',
-                                children: [
-                                    {
-                                        type: 'heading',
-                                        tag: 'h3',
-                                        children: [{ text: 'Fakturačné údaje', type: 'text', version: 1 }],
-                                        version: 1,
-                                        direction: 'ltr',
-                                        format: '',
-                                        indent: 0
-                                    },
-                                    {
-                                        type: 'paragraph',
-                                        children: [{ text: 'Ing. Rastislav Kamenský - KAGEOD\nZvolenská cesta 123\n960 01 Zvolen\n\nIČO: 12345678\nDIČ: 10203040', type: 'text', version: 1 }],
-                                        version: 1,
-                                        direction: 'ltr',
-                                        format: '',
-                                        indent: 0
-                                    }
-                                ],
-                                direction: 'ltr',
-                                format: '',
-                                indent: 0,
-                                version: 1
-                            }
-                        }
+                      type: 'heading',
+                      tag: 'h3',
+                      children: [{ text: 'Fakturačné údaje', type: 'text', version: 1 }],
+                      version: 1,
+                      direction: 'ltr',
+                      format: '',
+                      indent: 0,
                     },
                     {
-                        size: 'oneThird',
-                        richText: {
-                            root: {
-                                type: 'root',
-                                children: [
-                                    {
-                                        type: 'heading',
-                                        tag: 'h3',
-                                        children: [{ text: 'Spojenie', type: 'text', version: 1 }],
-                                        version: 1,
-                                        direction: 'ltr',
-                                        format: '',
-                                        indent: 0
-                                    },
-                                    {
-                                        type: 'paragraph',
-                                        children: [{ text: 'Telefón: +421 905 123 456\nEmail: info@kageod.sk\n\nKancelária:\nZvolenská biznis zóna, 2. poschodie', type: 'text', version: 1 }],
-                                        version: 1,
-                                        direction: 'ltr',
-                                        format: '',
-                                        indent: 0
-                                    }
-                                ],
-                                direction: 'ltr',
-                                format: '',
-                                indent: 0,
-                                version: 1
-                            }
-                        }
+                      type: 'paragraph',
+                      children: [
+                        {
+                          text: 'Ing. Rastislav Kamenský - KAGEOD\nZvolenská cesta 123\n960 01 Zvolen\n\nIČO: 12345678\nDIČ: 10203040',
+                          type: 'text',
+                          version: 1,
+                        },
+                      ],
+                      version: 1,
+                      direction: 'ltr',
+                      format: '',
+                      indent: 0,
+                    },
+                  ],
+                  direction: 'ltr',
+                  format: '',
+                  indent: 0,
+                  version: 1,
+                },
+              },
+            },
+            {
+              size: 'oneThird',
+              richText: {
+                root: {
+                  type: 'root',
+                  children: [
+                    {
+                      type: 'heading',
+                      tag: 'h3',
+                      children: [{ text: 'Spojenie', type: 'text', version: 1 }],
+                      version: 1,
+                      direction: 'ltr',
+                      format: '',
+                      indent: 0,
                     },
                     {
-                        size: 'oneThird',
-                        richText: {
-                            root: {
-                                type: 'root',
-                                children: [
-                                    {
-                                        type: 'heading',
-                                        tag: 'h3',
-                                        children: [{ text: 'Úradné hodiny', type: 'text', version: 1 }],
-                                        version: 1,
-                                        direction: 'ltr',
-                                        format: '',
-                                        indent: 0
-                                    },
-                                    {
-                                        type: 'paragraph',
-                                        children: [{ text: 'Po - Pi: 08:00 - 16:30\nSo - Ne: Podľa dohody\n\nOdporúčame vopred dohodnúť termín telefonicky.', type: 'text', version: 1 }],
-                                        version: 1,
-                                        direction: 'ltr',
-                                        format: '',
-                                        indent: 0
-                                    }
-                                ],
-                                direction: 'ltr',
-                                format: '',
-                                indent: 0,
-                                version: 1
-                            }
-                        }
-                    }
-                ]
-            }
-        ]
+                      type: 'paragraph',
+                      children: [
+                        {
+                          text: 'Telefón: +421 905 123 456\nEmail: info@kageod.sk\n\nKancelária:\nZvolenská biznis zóna, 2. poschodie',
+                          type: 'text',
+                          version: 1,
+                        },
+                      ],
+                      version: 1,
+                      direction: 'ltr',
+                      format: '',
+                      indent: 0,
+                    },
+                  ],
+                  direction: 'ltr',
+                  format: '',
+                  indent: 0,
+                  version: 1,
+                },
+              },
+            },
+            {
+              size: 'oneThird',
+              richText: {
+                root: {
+                  type: 'root',
+                  children: [
+                    {
+                      type: 'heading',
+                      tag: 'h3',
+                      children: [{ text: 'Úradné hodiny', type: 'text', version: 1 }],
+                      version: 1,
+                      direction: 'ltr',
+                      format: '',
+                      indent: 0,
+                    },
+                    {
+                      type: 'paragraph',
+                      children: [
+                        {
+                          text: 'Po - Pi: 08:00 - 16:30\nSo - Ne: Podľa dohody\n\nOdporúčame vopred dohodnúť termín telefonicky.',
+                          type: 'text',
+                          version: 1,
+                        },
+                      ],
+                      version: 1,
+                      direction: 'ltr',
+                      format: '',
+                      indent: 0,
+                    },
+                  ],
+                  direction: 'ltr',
+                  format: '',
+                  indent: 0,
+                  version: 1,
+                },
+              },
+            },
+          ],
+        },
+      ],
     }
 
     if (existingContact.docs.length > 0) {
-        await payload.update({
-            collection: 'pages',
-            id: existingContact.docs[0].id,
-            // eslint-disable-next-line @typescript-eslint/no-explicit-any
-            data: contactData as any
-        })
+      await payload.update({
+        collection: 'pages',
+        id: existingContact.docs[0].id,
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        data: contactData as any,
+      })
     } else {
-        await payload.create({
-            collection: 'pages',
-            // eslint-disable-next-line @typescript-eslint/no-explicit-any
-            data: contactData as any
-        })
+      await payload.create({
+        collection: 'pages',
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        data: contactData as any,
+      })
     }
 
-    return NextResponse.json({ success: true, message: 'Enhanced content seeded successfully' })
+    // 4. References Page
+    const existingReferences = await payload.find({
+      collection: 'pages',
+      where: { slug: { equals: 'referencie' } },
+    })
+
+    const referencesData = {
+      title: 'Referencie',
+      slug: 'referencie',
+      _status: 'published' as const,
+      hero: {
+        type: 'mediumImpact',
+        media: servicesImageId || undefined, // Reuse for now
+        richText: {
+          root: {
+            type: 'root',
+            children: [
+              {
+                type: 'heading',
+                tag: 'h1',
+                children: [{ text: 'Naše referencie', type: 'text', version: 1 }],
+                version: 1,
+                direction: 'ltr',
+                format: '',
+                indent: 0,
+              },
+              {
+                type: 'paragraph',
+                children: [
+                  {
+                    text: 'Prezrite si výber našich úspešne realizovaných projektov pre súkromných klientov aj firmy.',
+                    type: 'text',
+                    version: 1,
+                  },
+                ],
+                version: 1,
+                direction: 'ltr',
+                format: '',
+                indent: 0,
+              },
+            ],
+            direction: 'ltr',
+            format: '',
+            indent: 0,
+            version: 1,
+          },
+        },
+      },
+      layout: [
+        {
+          blockType: 'content',
+          columns: [
+            {
+              size: 'full',
+              richText: {
+                root: {
+                  type: 'root',
+                  children: [
+                    {
+                      type: 'heading',
+                      tag: 'h2',
+                      children: [{ text: 'Prehľad vybraných prác', type: 'text', version: 1 }],
+                      version: 1,
+                      direction: 'ltr',
+                      format: '',
+                      indent: 0,
+                    },
+                    {
+                      type: 'paragraph',
+                      children: [
+                        {
+                          text: 'Zakladáme si na dlhodobej spolupráci a spokojnosti našich partnerov. Každý projekt je pre nás príležitosťou potvrdiť našu povesť precíznej geodetickej kancelárie.',
+                          type: 'text',
+                          version: 1,
+                        },
+                      ],
+                      version: 1,
+                      direction: 'ltr',
+                      format: '',
+                      indent: 0,
+                    },
+                  ],
+                  direction: 'ltr',
+                  format: '',
+                  indent: 0,
+                  version: 1,
+                },
+              },
+            },
+          ],
+        },
+      ],
+    }
+
+    if (existingReferences.docs.length > 0) {
+      await payload.update({
+        collection: 'pages',
+        id: existingReferences.docs[0].id,
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        data: referencesData as any,
+      })
+    } else {
+      await payload.create({
+        collection: 'pages',
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        data: referencesData as any,
+      })
+    }
+
+    // 5. Global Header Seeding
+    await payload.updateGlobal({
+      slug: 'header',
+      data: {
+        navItems: [
+          { link: { type: 'custom', url: '/', label: 'Domov' } },
+          { link: { type: 'custom', url: '/sluzby', label: 'Služby' } },
+          { link: { type: 'custom', url: '/referencie', label: 'Referencie' } },
+          { link: { type: 'custom', url: '/kontakt', label: 'Kontakt' } },
+        ],
+      },
+    })
+
+    return NextResponse.json({ success: true, message: 'Enhanced content and header seeded successfully' })
   } catch (error: any) {
     console.error('Seed error:', error)
     return NextResponse.json({ success: false, error: error.message }, { status: 500 })
