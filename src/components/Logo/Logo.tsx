@@ -23,7 +23,7 @@ export const Logo = (props: Props) => {
         fetchPriority={priority}
         decoding="async"
         className="w-10 h-10 object-contain"
-        src="/media/logo.png"
+        src="/logo.png"
       />
       <span className="font-bold text-2xl tracking-[0.2em] text-primary uppercase">Kageod</span>
     </div>
