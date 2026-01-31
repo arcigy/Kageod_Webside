@@ -140,7 +140,7 @@ export async function GET() {
         ]
     })
 
-    // 2. SERVICES - Refined with detailed official copy
+    // 2. SERVICES - Refined with detailed official copy & Zig-Zag Layout
     await upsertPage('sluzby', {
         title: 'Naše Služby',
         hero: {
@@ -181,35 +181,74 @@ export async function GET() {
                                 version: 1
                             }
                         }
-                    },
+                    }
+                ]
+            },
+            {
+                blockType: 'content',
+                columns: [
                     {
-                        size: 'half',
+                        size: 'twoThirds',
                         richText: {
                             root: {
                                 type: 'root',
                                 children: [
                                     { type: 'heading', tag: 'h2', children: [{ text: 'Vytýčenie hraníc a stavieb', type: 'text', version: 1 }], version: 1 },
-                                    { type: 'paragraph', children: [{ text: 'Pri stavbe plota, nejasnostiach ohľadom hraníc pozemkov, kúpe nehnuteľnosti alebo stavbe nového domu budete potrebovať vytýčiť zlomové body pozemku tak, ako je uvedené v katastri nehnuteľností. Polohové a výškové vytýčenie sa robí i pri plánovaných stavbách, aby bola dodržaná ich vzdialenosť od hraníc pozemku.', type: 'text', version: 1 }], version: 1 },
-                                    { type: 'paragraph', children: [{ text: 'Nepresné vytýčenie môže mať nepríjemné právne dôsledky. Dobre vytýčené hranice pozemku Vám dajú istotu, že so svojim pozemkom môžete voľne nakladať, bez toho, aby neskôr sused spochybnil Vaše vlastnícke práva.', type: 'text', version: 1 }], version: 1 }
+                                    { type: 'paragraph', children: [{ text: 'Pri stavbe plota, nejasnostiach ohľadom hraníc pozemkov, kúpe nehnuteľnosti alebo stavbe nového domu budete potrebovať vytýčiť zlomové body pozemku tak, ako je uvedené v katastri nehnuteľností. Polohové a výškové vytýčenie sa robí i pri plánovaných stavbách, aby bola dodržaná ich vzdialenosť od hraníc pozemku.', type: 'text', version: 1 }], version: 1 }
                                 ],
                                 version: 1
                             }
                         }
                     },
                     {
-                        size: 'half',
+                        size: 'oneThird',
                         richText: {
                             root: {
                                 type: 'root',
                                 children: [
-                                    { type: 'heading', tag: 'h2', children: [{ text: 'Zameranie stavby', type: 'text', version: 1 }], version: 1 },
-                                    { type: 'paragraph', children: [{ text: 'Bezprostredne po dokončení Vašej stavby nasleduje jej kolaudácia a zápis do katastra nehnuteľností. Podmienkou k obom je zameranie skutočného stavu Vašej stavby a jej zanesenie do geometrického plánu, ktorý následne použijete pri jednaní na stavebnom úrade.', type: 'text', version: 1 }], version: 1 },
+                                    { type: 'heading', tag: 'h3', children: [{ text: 'PREČO JE TO DÔLEŽITÉ?', type: 'text', version: 1 }], version: 1 },
+                                    { type: 'paragraph', children: [{ text: 'Nepresné vytýčenie môže mať nepríjemné právne dôsledky. Dobre vytýčené hranice pozemku Vám dajú istotu, že so svojim pozemkom môžete voľne nakladať, bez toho, aby neskôr sused spochybnil Vaše vlastnícke práva.', type: 'text', version: 1 }], version: 1 }
+                                ],
+                                version: 1
+                            }
+                        }
+                    }
+                ]
+            },
+            {
+                blockType: 'content',
+                columns: [
+                    {
+                        size: 'oneThird',
+                        richText: {
+                            root: {
+                                type: 'root',
+                                children: [
+                                    { type: 'heading', tag: 'h3', children: [{ text: 'KOLAUDÁCIA & SIETE', type: 'text', version: 1 }], version: 1 },
                                     { type: 'paragraph', children: [{ text: 'Zameranie hotovej stavby môže zahŕňať i zameranie inžinierskych sietí (plynovody, káble, vodovody a kanalizácie).', type: 'text', version: 1 }], version: 1 }
                                 ],
                                 version: 1
                             }
                         }
                     },
+                    {
+                        size: 'twoThirds',
+                        richText: {
+                            root: {
+                                type: 'root',
+                                children: [
+                                    { type: 'heading', tag: 'h2', children: [{ text: 'Zameranie stavby', type: 'text', version: 1 }], version: 1 },
+                                    { type: 'paragraph', children: [{ text: 'Bezprostredne po dokončení Vašej stavby nasleduje jej kolaudácia a zápis do katastra nehnuteľností. Podmienkou k obom je zameranie skutočného stavu Vašej stavby a jej zanesenie do geometrického plánu, ktorý následne použijete pri jednaní na stavebnom úrade.', type: 'text', version: 1 }], version: 1 }
+                                ],
+                                version: 1
+                            }
+                        }
+                    }
+                ]
+            },
+            {
+                blockType: 'content',
+                columns: [
                     {
                         size: 'half',
                         richText: {
@@ -235,7 +274,12 @@ export async function GET() {
                                 version: 1
                             }
                         }
-                    },
+                    }
+                ]
+            },
+            {
+                blockType: 'content',
+                columns: [
                     {
                         size: 'full',
                         richText: {
