@@ -21,8 +21,6 @@ export const HeaderClient: React.FC<HeaderClientProps> = ({ data }) => {
   const [hidden, setHidden] = useState(false)
 
   useEffect(() => {
-    let lastScrollY = window.scrollY
-    
     const handleScroll = () => {
       const currentScrollY = window.scrollY
       if (currentScrollY > 50) {
@@ -30,7 +28,6 @@ export const HeaderClient: React.FC<HeaderClientProps> = ({ data }) => {
       } else {
          setHidden(false)
       }
-      lastScrollY = currentScrollY
     }
     
     window.addEventListener('scroll', handleScroll, { passive: true })
@@ -48,17 +45,17 @@ export const HeaderClient: React.FC<HeaderClientProps> = ({ data }) => {
   return (
     <header 
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 transform ${
-        hidden ? '-translate-y-full opacity-0 pointer-events-none' : 'translate-y-0 opacity-100 py-8 bg-transparent'
+        hidden ? '-translate-y-full opacity-0 pointer-events-none' : 'translate-y-0 opacity-100 py-6 bg-transparent'
       }`} 
       {...(theme ? { 'data-theme': theme } : {})}
     >
-      <div className="container flex justify-between items-center h-full">
+      <div className="w-full px-8 relative flex justify-between items-start h-full">
         <Link href="/" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
           <Logo loading="eager" priority="high" className="scale-100 transition-transform duration-300 hover:scale-105" />
         </Link>
         
-        {/* Visible Links, Far Right */}
-        <div className="flex items-center justify-end flex-1">
+        {/* Absolute Right Column Navigation - Pinned to edge */}
+        <div className="absolute right-8 top-0 flex flex-col items-end gap-1 mt-2">
            <HeaderNav data={data} />
         </div>
       </div>

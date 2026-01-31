@@ -126,48 +126,42 @@ body::after {
 }
 /* ------------------------------- */
 
-/* --- Neon Spark Border Animation (Solid Red Base + Moving Spark) --- */
-@property --angle {
-  syntax: '<angle>';
-  initial-value: 0deg;
-  inherits: false;
-}
-
-@keyframes spin {
-  from {
-    --angle: 0deg;
-  }
-  to {
-    --angle: 360deg;
-  }
-}
-
+/* --- Static Red Border (No Spin) --- */
 .hover-neon-snake {
   position: absolute;
   inset: 0;
   border-radius: var(--radius);
   pointer-events: none;
   z-index: 0;
-  border: 1px solid oklch(60% 0.22 28deg / 0.3); /* Base dim red border */
-  overflow: hidden;
+  border: 1px solid var(--primary); /* Static pure red border */
+  box-shadow: 0 0 10px var(--primary); /* Subtle static glow */
+  opacity: 0.5;
+  transition: opacity 0.3s;
 }
 
-.hover-neon-snake::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  padding: 2px; /* Spark thickness */
-  border-radius: inherit;
-  /* The moving spark: Transparent mostly, with a sharp bright red peak */
-  background: conic-gradient(from var(--angle), transparent 20%, oklch(70% 0.25 28deg) 50%, transparent 80%);
-  -webkit-mask: 
-     linear-gradient(#fff 0 0) content-box, 
-     linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-  animation: spin 3s linear infinite;
-  opacity: 1; /* Always visible spark on top of base border */
-  mix-blend-mode: plus-lighter;
+.group:hover .hover-neon-snake {
+  opacity: 1;
+  box-shadow: 0 0 20px var(--primary); /* Brighter glow on hover */
+}
+
+/* --- Animated Background Orbs (Premium Feel) --- */
+@keyframes breathe {
+  0%, 100% { opacity: 0.05; transform: scale(1); }
+  50% { opacity: 0.08; transform: scale(1.1); }
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  bottom: -15%;
+  left: -10%;
+  width: 60%; /* Larger */
+  height: 60%;
+  background: radial-gradient(circle, oklch(60% 0.22 28deg / 0.1) 0%, transparent 60%); /* Smoother gradient */
+  z-index: -9;
+  filter: blur(100px);
+  pointer-events: none;
+  animation: breathe 10s ease-in-out infinite; /* Living background */
 }
 /* ---------------------------------- */
 
