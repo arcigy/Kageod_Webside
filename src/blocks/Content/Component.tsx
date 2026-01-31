@@ -43,12 +43,13 @@ export const ContentBlock: React.FC<ContentBlockProps> = (props) => {
                   
                   <div className="relative z-10 w-full">
                     {hasMapPlaceholder ? (
-                      <div className="w-full h-[400px] rounded-lg overflow-hidden border border-white/10 transition-all duration-500 shadow-2xl">
+                      <div className="w-full h-[600px] rounded-lg overflow-hidden border border-white/10 transition-all duration-500 shadow-2xl relative group-hover:scale-[1.01]">
+                         <div className="absolute inset-0 bg-primary/10 pointer-events-none z-10 mix-blend-overlay" /> {/* Red tint overlay */}
                          <iframe 
                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2633.606709841804!2d19.13968897762635!3d48.58289417129532!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47153b6883e00001%3A0xe744473335508c0!2sBudova%20Strabag!5e0!3m2!1sen!2ssk!4v1709212345678!5m2!1sen!2ssk"
                            width="100%" 
                            height="100%" 
-                           style={{ border: 0 }} 
+                           style={{ border: 0, filter: 'invert(90%) hue-rotate(180deg) contrast(120%)' }} 
                            allowFullScreen 
                            loading="lazy" 
                            referrerPolicy="no-referrer-when-downgrade"

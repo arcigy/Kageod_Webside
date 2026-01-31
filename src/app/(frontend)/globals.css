@@ -126,35 +126,41 @@ body::after {
 }
 /* ------------------------------- */
 
-/* --- Neon Snake Border Animation --- */
-@keyframes neonSnake {
-  0%, 100% {
-    clip-path: inset(0 0 95% 0);
+/* --- Neon Spark Border Animation --- */
+@property --angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@keyframes spin {
+  from {
+    --angle: 0deg;
   }
-  25% {
-    clip-path: inset(0 95% 0 0);
-  }
-  50% {
-    clip-path: inset(95% 0 0 0);
-  }
-  75% {
-    clip-path: inset(0 0 0 95%);
+  to {
+    --angle: 360deg;
   }
 }
 
-.hover-neon-snake::before {
+.hover-neon-snake::before,
+.hover-neon-snake::after {
   content: '';
   position: absolute;
-  top: -2px; left: -2px; right: -2px; bottom: -2px;
-  background: var(--primary);
-  z-index: -1;
+  inset: -1px; /* Ultra thin border */
   border-radius: var(--radius);
-  animation: neonSnake 2s linear infinite;
+  background: conic-gradient(from var(--angle), transparent 70%, var(--primary));
+  z-index: -1;
+  animation: spin 3s linear infinite;
   opacity: 0;
   transition: opacity 0.3s;
 }
 
-.group:hover .hover-neon-snake::before {
+.hover-neon-snake::after {
+  filter: blur(10px); /* Neon Glow */
+}
+
+.group:hover .hover-neon-snake::before,
+.group:hover .hover-neon-snake::after {
   opacity: 1;
 }
 /* ---------------------------------- */
