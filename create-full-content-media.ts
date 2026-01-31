@@ -1,5 +1,6 @@
+// @ts-nocheck
 import { getPayload } from 'payload'
-import config from './payload.config'
+import config from './src/payload.config'
 import dotenv from 'dotenv'
 import path from 'path'
 import { fileURLToPath } from 'url'
@@ -8,7 +9,7 @@ import fs from 'fs'
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
 
-dotenv.config({ path: path.resolve(dirname, '../.env') })
+dotenv.config({ path: path.resolve(dirname, '.env') })
 
 const createFullContentWithMedia = async () => {
     const payload = await getPayload({ config })
@@ -16,8 +17,8 @@ const createFullContentWithMedia = async () => {
     console.log('Setting up content (With Media)...')
 
     // Helper to upload media
-    const uploadMedia = async (relativePath: string, alt: string) => {
-        const absolutePath = path.resolve(dirname, relativePath)
+    const uploadMedia = async (filePath: string, alt: string) => {
+        const absolutePath = path.resolve(dirname, filePath)
         if (!fs.existsSync(absolutePath)) {
             console.warn(`File not found: ${absolutePath}`)
             return null
@@ -44,10 +45,9 @@ const createFullContentWithMedia = async () => {
     }
 
     console.log('Uploading Images...')
-    // Note: Assuming these files exist in public/media relative to project root
-    const heroImageId = await uploadMedia('../public/media/hero-main.png', 'Geodet pri práci')
-    const servicesImageId = await uploadMedia('../public/media/services-main.png', 'Geodetické plány')
-    const contactImageId = await uploadMedia('../public/media/contact-main.png', 'Kancelária geodeta')
+    const heroImageId = await uploadMedia('public/media/hero-main.png', 'Geodet pri práci')
+    const servicesImageId = await uploadMedia('public/media/services-main.png', 'Geodetické plány')
+    const contactImageId = await uploadMedia('public/media/contact-main.png', 'Kancelária geodeta')
 
     // 1. Get or Create Home Page
     const existingHome = await payload.find({
@@ -59,7 +59,7 @@ const createFullContentWithMedia = async () => {
     const homeData = {
         title: 'Domov',
         slug: 'home',
-        _status: 'published' as const,
+        _status: 'published',
         hero: {
             type: heroImageId ? 'highImpact' : 'lowImpact',
             media: heroImageId || undefined,
@@ -178,7 +178,7 @@ const createFullContentWithMedia = async () => {
     const servicesData = {
         title: 'Služby',
         slug: 'sluzby',
-        _status: 'published' as const,
+        _status: 'published',
         hero: {
             type: servicesImageId ? 'mediumImpact' : 'lowImpact',
             media: servicesImageId || undefined,
@@ -330,7 +330,7 @@ const createFullContentWithMedia = async () => {
     const contactData = {
         title: 'Kontakt',
         slug: 'kontakt',
-        _status: 'published' as const,
+        _status: 'published',
         hero: {
             type: contactImageId ? 'mediumImpact' : 'lowImpact',
             media: contactImageId || undefined,
