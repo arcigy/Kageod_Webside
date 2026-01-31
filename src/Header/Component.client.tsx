@@ -21,13 +21,16 @@ export const HeaderClient: React.FC<HeaderClientProps> = ({ data }) => {
   const [hidden, setHidden] = useState(false)
 
   useEffect(() => {
+    let lastScrollY = window.scrollY
     const handleScroll = () => {
       const currentScrollY = window.scrollY
-      if (currentScrollY > 50) {
+      // Hide dock only when scrolling down fast, show on scroll up
+      if (currentScrollY > lastScrollY && currentScrollY > 100) {
          setHidden(true)
       } else {
          setHidden(false)
       }
+      lastScrollY = currentScrollY
     }
     
     window.addEventListener('scroll', handleScroll, { passive: true })
@@ -43,22 +46,24 @@ export const HeaderClient: React.FC<HeaderClientProps> = ({ data }) => {
   }, [headerTheme, theme])
 
   return (
-    <header 
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 transform ${
-        hidden ? '-translate-y-full opacity-0 pointer-events-none' : 'translate-y-0 opacity-100 py-6 bg-transparent'
-      }`} 
-      {...(theme ? { 'data-theme': theme } : {})}
-    >
-      <div className="w-full px-8 relative flex justify-between items-start h-full">
-        <Link href="/" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-          <Logo loading="eager" priority="high" className="scale-100 transition-transform duration-300 hover:scale-105" />
-        </Link>
-        
-        {/* Absolute Right Column Navigation - Pinned to edge */}
-        <div className="absolute right-8 top-0 flex flex-col items-end gap-1 mt-2">
+    <>
+      <header className="fixed top-0 left-0 right-0 z-40 py-8 pointer-events-none">
+        <div className="container flex justify-between items-start pointer-events-auto">
+          <Link href="/" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+            <Logo loading="eager" priority="high" className="scale-100 transition-transform duration-300 hover:scale-105" />
+          </Link>
+        </div>
+      </header>
+      
+      {/* Floating Bottom Dock Navigation */}
+      <div className={`fixed bottom-8 left-1/2 -translate-x-1/2 z-50 transition-all duration-500 transform ${
+          hidden ? 'translate-y-[200%] opacity-0' : 'translate-y-0 opacity-100'
+        }`}
+      >
+        <div className="bg-black/20 backdrop-blur-md border border-white/10 px-8 py-4 rounded-full shadow-2xl flex items-center gap-8">
            <HeaderNav data={data} />
         </div>
       </div>
-    </header>
+    </>
   )
 }

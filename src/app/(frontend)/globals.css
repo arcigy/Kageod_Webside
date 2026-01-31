@@ -78,32 +78,50 @@
   --radius: 0.5rem; /* Sharper for industrial precision */
 }
 
-/* Base style for the grid background - subtle technical feel */
+/* --- Blinking Stars Background --- */
+@keyframes twinkle {
+  0%, 100% { opacity: 0.2; transform: scale(0.8); }
+  50% { opacity: 0.8; transform: scale(1.2); }
+}
+
 body::before {
   content: "";
   position: fixed;
   inset: 0;
   background-image: 
-    linear-gradient(to right, oklch(100% 0 0deg / 0.02) 1px, transparent 1px),
-    linear-gradient(to bottom, oklch(100% 0 0deg / 0.02) 1px, transparent 1px);
-  background-size: 60px 60px;
+    radial-gradient(1px 1px at 10% 10%, white, transparent),
+    radial-gradient(1px 1px at 20% 30%, white, transparent),
+    radial-gradient(2px 2px at 40% 70%, white, transparent),
+    radial-gradient(1px 1px at 60% 40%, white, transparent),
+    radial-gradient(2px 2px at 80% 80%, white, transparent),
+    radial-gradient(1px 1px at 90% 20%, white, transparent);
+  background-size: 50% 50%;
+  opacity: 0.3;
   z-index: -10;
-  pointer-events: none;
+  animation: twinkle 5s infinite alternate;
 }
 
-/* Subtle glow orbs in Red */
-body::after {
-  content: "";
-  position: fixed;
-  bottom: -15%;
-  left: -10%;
-  width: 50%;
-  height: 50%;
-  background: radial-gradient(circle, oklch(60% 0.22 28deg / 0.05) 0%, transparent 70%);
-  z-index: -9;
-  filter: blur(120px);
-  pointer-events: none;
+/* --- Water Reflection Effect --- */
+.reflection-effect {
+  position: relative;
 }
+
+.reflection-effect::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  height: 40%;
+  background: inherit;
+  transform: scaleY(-1);
+  opacity: 0.3;
+  mask-image: linear-gradient(to bottom, rgba(0,0,0,0.5), transparent);
+  -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,0.5), transparent);
+  pointer-events: none;
+  filter: blur(2px);
+}
+/* ---------------------------------- */
 
 /* --- Modern Custom Scrollbar --- */
 ::-webkit-scrollbar {

@@ -18,18 +18,18 @@ export const HeaderNav: React.FC<{ data: HeaderType }> = ({ data }) => {
   }
 
   return (
-    <nav className="flex flex-col gap-2 items-end w-auto">
+    <nav className="flex gap-8 items-center">
       {navItems.map(({ link }, i) => {
         const href = link.type === 'reference' && typeof link.reference?.value === 'object' && link.reference.value.slug
           ? `/${link.reference.value.slug === 'home' ? '' : link.reference.value.slug}`
           : link.url || ''
 
         return (
-          <div key={i} onClick={(e) => handleClick(e as any, href)} className="relative">
+          <div key={i} onClick={(e) => handleClick(e as any, href)}>
              <CMSLink 
               {...link} 
               appearance="default"
-              className="font-serif italic text-[11px] text-white/80 hover:text-white uppercase tracking-[0.2em] transition-colors duration-300 block text-right"
+              className="text-[12px] font-serif uppercase tracking-widest text-white/80 hover:text-white transition-all duration-300"
             />
           </div>
         )
