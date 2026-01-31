@@ -21,36 +21,32 @@ export const HighImpactHero: React.FC<Page['hero']> = ({ links, media, richText 
       data-theme="dark"
     >
       <div className="container z-10 relative pt-32 md:pt-0">
-        <div className="max-w-[58rem] animate-fade-in-up">
-          {/* Top Badge: Very modern, small, tracked out */}
-          <div className="inline-flex items-center gap-2 px-3 py-1 mb-10 rounded-full bg-white/5 border border-white/10 backdrop-blur-xl group">
-             <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
-            </span>
-            <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-white/60">
-              Inovácie v Geodézii • Od roku 1990
+        <div className="max-w-[62rem] animate-fade-in-up">
+          {/* Top Badge: Technical, clean */}
+          <div className="inline-flex items-center gap-3 px-4 py-1.5 mb-10 bg-primary/10 border-l-2 border-primary">
+            <span className="text-[11px] font-black uppercase tracking-[0.3em] text-primary">
+              TRADÍCIA • PRECÍZNOSŤ • KONSTRUKCIA
             </span>
           </div>
 
           {richText && (
-            <div className="[&_h1]:text-6xl md:[&_h1]:text-8xl [&_h1]:font-extrabold [&_h1]:tracking-tight [&_h1]:leading-[1.05] [&_h1]:mb-10 [&_p]:text-xl md:[&_p]:text-2xl [&_p]:text-white/60 [&_p]:leading-relaxed [&_p]:max-w-[42rem] [&_p]:font-light">
+            <div className="[&_h1]:text-6xl md:[&_h1]:text-8xl [&_h1]:font-black [&_h1]:tracking-tighter [&_h1]:leading-[0.95] [&_h1]:mb-10 [&_h1]:uppercase [&_p]:text-xl md:[&_p]:text-2xl [&_p]:text-white/60 [&_p]:leading-relaxed [&_p]:max-w-[44rem] [&_p]:font-medium">
               <RichText data={richText} enableGutter={false} />
             </div>
           )}
 
           {Array.isArray(links) && links.length > 0 && (
-            <ul className="flex flex-wrap gap-6 mt-14">
+            <ul className="flex flex-wrap gap-4 mt-14">
               {links.map(({ link }, i) => {
                 return (
                   <li key={i}>
                     <CMSLink 
                       {...link} 
                       appearance={i === 0 ? 'default' : 'outline'}
-                      className={`px-10 py-5 rounded-xl font-bold transition-all duration-300 hover:translate-y-[-4px] active:scale-95 ${
+                      className={`px-10 py-5 rounded-sm font-black uppercase text-xs tracking-widest transition-all duration-300 ${
                         i === 0 
-                          ? 'bg-primary text-black shadow-[0_20px_40px_rgba(var(--primary-rgb),0.3)]' 
-                          : 'bg-white/5 backdrop-blur-md border-white/10 hover:bg-white/10'
+                          ? 'bg-primary text-white hover:bg-white hover:text-black' 
+                          : 'bg-transparent border border-white/20 hover:border-white hover:bg-white/5'
                       }`}
                     />
                   </li>
@@ -65,10 +61,8 @@ export const HighImpactHero: React.FC<Page['hero']> = ({ links, media, richText 
       <div className="absolute inset-0 select-none z-0">
         {media && typeof media === 'object' && (
           <React.Fragment>
-            <Media fill imgClassName="object-cover transition-transform duration-1000 scale-105" priority resource={media} />
-            {/* Multi-layered futuristic mask */}
-            <div className="absolute inset-0 bg-gradient-to-tr from-background via-background/80 to-transparent z-0" />
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,oklch(75%_0.15_220deg/0.15),transparent_50%)] z-0" />
+            <Media fill imgClassName="object-cover opacity-40" priority resource={media} />
+            <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/50 z-0" />
             <div className="absolute inset-0 bg-black/40 z-0" />
           </React.Fragment>
         )}

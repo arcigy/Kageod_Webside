@@ -50,38 +50,59 @@
 }
 
 :root {
-  --background: oklch(10% 0.01 260deg); /* Modern Deep Background */
-  --foreground: oklch(98% 0.01 260deg);
-  --card: oklch(14% 0.02 260deg);
-  --card-foreground: oklch(98% 0.01 260deg);
-  --popover: oklch(14% 0.02 260deg);
-  --popover-foreground: oklch(98% 0.01 260deg);
+  --background: oklch(8% 0.01 260deg); /* Deep Carbon */
+  --foreground: oklch(98% 0.005 260deg);
+  --card: oklch(12% 0.01 260deg);
+  --card-foreground: oklch(98% 0.005 260deg);
+  --popover: oklch(12% 0.01 260deg);
+  --popover-foreground: oklch(98% 0.005 260deg);
   
-  /* Primary: Electric Blue / Cyan (Modern Trend) */
-  --primary: oklch(75% 0.15 220deg);
-  --primary-rgb: 0, 212, 255; /* Approximate for shadows */
-  --primary-foreground: oklch(10% 0.01 260deg);
+  /* Primary: Vivid Red (Matching Kageod Logo) */
+  --primary: oklch(60% 0.22 28deg);
+  --primary-rgb: 227, 30, 36;
+  --primary-foreground: oklch(100% 0 0deg);
   
-  --secondary: oklch(22% 0.02 260deg);
-  --secondary-foreground: oklch(90% 0.01 260deg);
-  --muted: oklch(20% 0.02 260deg);
-  --muted-foreground: oklch(65% 0.01 260deg);
-  --accent: oklch(30% 0.1 220deg);
-  --accent-foreground: oklch(98% 0.01 260deg);
+  --secondary: oklch(18% 0.01 260deg);
+  --secondary-foreground: oklch(90% 0.005 260deg);
+  --muted: oklch(15% 0.01 260deg);
+  --muted-foreground: oklch(60% 0.01 260deg);
+  --accent: oklch(25% 0.1 28deg);
+  --accent-foreground: oklch(100% 0 0deg);
   
-  --destructive: oklch(55% 0.22 25deg);
+  --destructive: oklch(50% 0.2 28deg);
   --destructive-foreground: oklch(98% 0 0deg);
   
-  --border: oklch(25% 0.03 260deg);
-  --input: oklch(25% 0.03 260deg);
-  --ring: oklch(75% 0.15 220deg);
-  --radius: 0.75rem; 
+  --border: oklch(20% 0.01 260deg);
+  --input: oklch(20% 0.01 260deg);
+  --ring: oklch(60% 0.22 28deg);
+  --radius: 0.5rem; /* Sharper for industrial precision */
 }
 
-/* Force dark feel for everything as requested by modern trends */
-[data-theme='light'] {
-  --background: oklch(12% 0.01 260deg);
-  --foreground: oklch(98% 0.01 260deg);
+/* Base style for the grid background - subtle technical feel */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: 
+    linear-gradient(to right, oklch(100% 0 0deg / 0.02) 1px, transparent 1px),
+    linear-gradient(to bottom, oklch(100% 0 0deg / 0.02) 1px, transparent 1px);
+  background-size: 60px 60px;
+  z-index: -10;
+  pointer-events: none;
+}
+
+/* Subtle glow orbs in Red */
+body::after {
+  content: "";
+  position: fixed;
+  bottom: -15%;
+  left: -10%;
+  width: 50%;
+  height: 50%;
+  background: radial-gradient(circle, oklch(60% 0.22 28deg / 0.05) 0%, transparent 70%);
+  z-index: -9;
+  filter: blur(120px);
+  pointer-events: none;
 }
 
 @theme inline {
@@ -135,31 +156,6 @@
     @apply bg-background text-foreground min-h-[100vh] flex flex-col font-sans antialiased relative;
   }
 
-  /* Grid background */
-  body::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-    background-image: radial-gradient(circle at 1px 1px, oklch(100% 0 0deg / 0.03) 1px, transparent 0);
-    background-size: 40px 40px;
-    z-index: -10;
-    pointer-events: none;
-  }
-
-  /* Glow orbs */
-  body::after {
-    content: "";
-    position: fixed;
-    top: -10%;
-    right: -10%;
-    width: 60%;
-    height: 60%;
-    background: radial-gradient(circle, oklch(75% 0.15 220deg / 0.1) 0%, transparent 70%);
-    z-index: -9;
-    filter: blur(100px);
-    pointer-events: none;
-  }
-
   /* Premium Typography Extensions */
   .prose {
     --tw-prose-headings: var(--foreground);
@@ -167,24 +163,28 @@
     --tw-prose-bold: var(--foreground);
     --tw-prose-links: var(--primary);
     --tw-prose-bullets: var(--primary);
-    max-width: 85ch;
+    max-width: 80ch;
   }
 
   .prose h1, .prose h2, .prose h3 {
-    @apply tracking-tight font-bold;
-    letter-spacing: -0.02em;
+    @apply tracking-tighter font-extrabold uppercase;
+    letter-spacing: -0.04em;
   }
 
   .prose p {
-    @apply leading-relaxed opacity-80;
+    @apply leading-relaxed opacity-70 text-base md:text-lg;
+  }
+
+  .prose ul > li {
+    @apply pl-2 border-l-2 border-primary/20 mb-4 hover:border-primary transition-colors duration-300;
   }
 
   .prose ul > li::marker {
-    @apply text-primary font-bold;
+    content: none;
   }
 
   .prose blockquote {
-    @apply border-l-primary bg-primary/5 py-2 px-6 rounded-r-lg italic;
+    @apply border-l-primary bg-primary/5 py-4 px-8 rounded-r-lg not-italic font-medium;
   }
 }
 

@@ -14,18 +14,17 @@ export const Logo = (props: Props) => {
   const priority = priorityFromProps || 'low'
 
   return (
-    <div className={clsx('flex items-center gap-3', className)}>
+    <div className={clsx('flex items-center', className)}>
       <img
         alt="Kageod Logo"
-        width={40}
-        height={40}
+        width={180}
+        height={60}
         loading={loading}
         fetchPriority={priority}
         decoding="async"
-        className="w-10 h-10 object-contain"
-        src="/logo.png"
+        className="h-10 md:h-12 w-auto object-contain"
+        src="/logo.jpg"
       />
-      <span className="font-bold text-2xl tracking-[0.2em] text-primary uppercase">Kageod</span>
     </div>
   )
 }

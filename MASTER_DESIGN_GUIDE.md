@@ -1,27 +1,33 @@
-# Kageod Master Design Guide 🛰️✨
+# Kageod Master Design Guide 🛰️🛡️
 
-Toto je záväzný dokument pre vizuálnu identitu a štruktúru webu Kageod. Každý ďalší vývoj musí rešpektovať tieto pravidlá, aby sa zachovala "Elite" kvalita.
+Toto je záväzný dokument pre vizuálnu identitu a štruktúru webu Kageod. Každý ďalší vývoj musí rešpektovať tieto pravidlá, aby sa zachovala **Industrial Precision** kvalita.
 
-## 🎨 Farebná Paleta (Modern Dark Tech)
-- **Background:** `oklch(10% 0.01 260deg)` - Hlboká tmavá modrá/čierna.
-- **Primary Accent:** `oklch(75% 0.15 220deg)` - Electric Cyan (Svetlo modrá/tyrkysová).
-- **Primary RGB:** `0, 212, 255` (pre tiene a glassmorphism).
-- **Card BG:** `white/[0.03]` s `backdrop-blur-sm`.
-- **Card Border:** `white/[0.08]` (pri hoveri `white/[0.15]`).
+## 🎨 Farebná Paleta (Industrial Dark)
 
-## ✍️ Typografia
-- **Main Font:** 'Inter' (Google Fonts).
-- **Headings:** Extra Bold (800) alebo Bold (700) so záporným letter-spacingom (`tracking-tight`).
-- **Body:** font-light (300) alebo normal (400) s nižšou opacitou (`opacity-70`) pre moderný vzhľad.
+- **Background:** `oklch(8% 0.01 260deg)` - Temný grafit/karbón.
+- **Primary Accent:** `oklch(60% 0.22 28deg)` - Žiarivá Červená (presne podľa Kageod loga).
+- **Primary RGB:** `227, 30, 36` (pre technické tiene a záklopy).
+- **Secondary:** `oklch(18% 0.01 260deg)` - Bridlicová sivá pre štrukturálne prvky.
 
-## 🍱 Komponenty a Layout
-- **Hero:** Musí obsahovať gradientové masky, technické indikátory (side lines, badges) a 4K 16:9 vizuály.
-- **Bento Grid:** Obsahové bloky musia byť v zaoblených kartách (`rounded-3xl`) s hover efektom `translate-y-[-8px]`.
-- **Interaktivita:** Každý button musí mať jemnú žiaru (glow) a plynulú tranzíciu.
+## ✍️ Typografia (Prehľadnosť nadovšetko)
+
+- **Main Font:** 'Inter' (čistý, geometrický sans-serif).
+- **Nadpisy:** Extra Bold / Black (800-900), **VŽDY VERZÁLKY (UPPERCASE)** v hero sekciách a na kartách. 
+- **Letter-spacing:** `tracking-tighter` (-0.04em) pre nadpisy, pôsobí to technicky a precízne.
+- **Text:** Čitateľný, zarovnaný, s opacitou okolo 70% pre textové bloky.
+
+## 🍱 Komponenty a Layout (Neat Grid)
+
+- **Logo:** Používať originálne grafické logo `logo.jpg` bez dodatočného textu v kóde.
+- **Bento Karty:** Zaoblenie `rounded-lg` (0.5rem) namiesto príliš "jemných" 3xl, čo dodáva industriálny charakter.
+- **Usporiadanie:** Striktné zarovnanie na mriežku (grid). Žiadne "náhodné" prvky. Každý blok musí mať jasný účel a logické miesto.
+- **Pozadie:** Lineárna mriežka (grid lines) 60x60px pre pocit geodetických výkresov.
 
 ## 📸 Media Standard
-- Všetky obrázky musia byť v **4K rozlíšení**, pomer strán **16:9**.
-- Témy: Geodézia, moderná architektúra, slovenská krajina (hory/ZV región).
+
+- **Technický charakter:** Fotky prístrojov (Leica, Trimble), mapových podkladov a reálnej práce v teréne.
+- Pomer strán fixný, najlepšie 4:3 v bento kartách pre prehľadnosť.
 
 ## 🧠 Memory Rule
-Pred každou editáciou CSS alebo React komponentov si AI agent MUSÍ načítať tento súbor, aby sa predišlo návratu k priemernému dizajnu.
+
+AI agent musí pred každou zmenou potvrdiť, že nová úprava ladí s ČERVENOU identitou a industriálnym štýlom. Akákoľvek "Instagramová estetika" (zaoblené gombíky, cyan farba) je zakázaná.
