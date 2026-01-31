@@ -73,6 +73,7 @@ export const ContentBlock: React.FC<ContentBlockProps> = (props) => {
                   )}
                 </div>
               </div>
+            </div>
             )
           })}
       </div>
