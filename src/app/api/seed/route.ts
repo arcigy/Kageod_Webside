@@ -37,15 +37,17 @@ export async function GET() {
 
       const media = await payload.create({
         collection: 'media',
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         data: {
           alt,
         },
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         file: {
-          path: filePath,
+          data: fs.readFileSync(filePath),
           name: fileName,
           mimetype: 'image/png',
           size: fs.statSync(filePath).size
-        }
+        } as any
       })
       return media.id
     }
@@ -160,12 +162,14 @@ export async function GET() {
         await payload.update({
             collection: 'pages',
             id: homeId,
-            data: homeData
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            data: homeData as any
         })
     } else {
         const doc = await payload.create({
             collection: 'pages',
-            data: homeData
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            data: homeData as any
         })
         homeId = doc.id
     }
@@ -311,12 +315,14 @@ export async function GET() {
         await payload.update({
             collection: 'pages',
             id: servicesId,
-            data: servicesData
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            data: servicesData as any
         })
     } else {
         const doc = await payload.create({
             collection: 'pages',
-            data: servicesData
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            data: servicesData as any
         })
         servicesId = doc.id
     }
@@ -448,12 +454,14 @@ export async function GET() {
         await payload.update({
             collection: 'pages',
             id: contactId,
-            data: contactData
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            data: contactData as any
         })
     } else {
         const doc = await payload.create({
             collection: 'pages',
-            data: contactData
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            data: contactData as any
         })
         contactId = doc.id
     }
@@ -462,6 +470,7 @@ export async function GET() {
     try {
       await payload.updateGlobal({
           slug: 'header',
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
           data: {
               navItems: [
                   {
@@ -486,7 +495,7 @@ export async function GET() {
                       }
                   }
               ]
-          }
+          } as any
       })
     } catch (e) {
       console.warn("Header warning:", e)
