@@ -48,6 +48,7 @@ export async function GET() {
     const heroImageId = await uploadMedia('hero-sunset-nanabanana.png', 'Geodetický prístroj pri západe slnka - 4K')
     const servicesImageId = await uploadMedia('services-main.png', 'Geodetické plány a merania')
     const contactImageId = await uploadMedia('contact-main.png', 'Geodetická kancelária KAGEOD')
+    const referencesImageId = await uploadMedia('references-4k.png', 'Realizované projekty a dokumentácia - 4K')
 
     // 1. Home Page - ENHANCED
     const existingHome = await payload.find({
@@ -546,7 +547,7 @@ export async function GET() {
       _status: 'published' as const,
       hero: {
         type: 'mediumImpact',
-        media: servicesImageId || undefined, // Reuse for now
+        media: referencesImageId || undefined,
         richText: {
           root: {
             type: 'root',
