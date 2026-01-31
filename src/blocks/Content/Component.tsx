@@ -27,11 +27,16 @@ export const ContentBlock: React.FC<ContentBlockProps> = (props) => {
 
             // Hack to inject map if placeholder is found
             const hasMapPlaceholder = JSON.stringify(richText).includes('%%MAP%%')
+            
+            // Check if any column in this block has a map to force stack layout for the whole row
+            const blockHasMap = columns.some(c => JSON.stringify(c.richText).includes('%%MAP%%'))
 
             return (
               <div
-                className={cn(`col-span-4 lg:col-span-${colsSpanClasses[size!]} flex`, {
-                  'md:col-span-2': size !== 'full',
+                className={cn(`col-span-4 flex`, {
+                  'lg:col-span-12': blockHasMap, // Stack if map is present
+                  [`lg:col-span-${colsSpanClasses[size!]}`]: !blockHasMap && size !== 'full',
+                  'md:col-span-2': !blockHasMap && size !== 'full',
                 })}
                 key={index}
               >
