@@ -18,23 +18,19 @@ export const HeaderNav: React.FC<{ data: HeaderType }> = ({ data }) => {
   }
 
   return (
-    <nav className="flex flex-col gap-6 items-start w-full">
+    <nav className="flex gap-6 items-center w-auto">
       {navItems.map(({ link }, i) => {
         const href = link.type === 'reference' && typeof link.reference?.value === 'object' && link.reference.value.slug
           ? `/${link.reference.value.slug === 'home' ? '' : link.reference.value.slug}`
           : link.url || ''
 
         return (
-          <div key={i} onClick={(e) => handleClick(e as any, href)} className="w-full">
+          <div key={i} onClick={(e) => handleClick(e as any, href)} className="relative">
              <CMSLink 
               {...link} 
               appearance="default"
-              className="group flex w-full bg-transparent border-l border-white/10 pl-6 pr-4 py-4 text-white text-2xl font-black uppercase tracking-widest hover:bg-white/5 hover:border-primary hover:text-primary transition-all duration-300 relative overflow-hidden"
-            >
-              <span className="relative z-10 transition-transform duration-300 group-hover:translate-x-4">
-                {link.label}
-              </span>
-            </CMSLink>
+              className="font-serif italic text-[11px] text-white/80 hover:text-white uppercase tracking-[0.2em] transition-colors duration-300"
+            />
           </div>
         )
       })}

@@ -70,7 +70,7 @@ export const HighImpactHero: React.FC<Page['hero']> = ({ links, media, richText 
       {/* Background with decorative elements */}
       <div 
         className="absolute inset-0 select-none z-0"
-        style={{ transform: `scale(${Math.max(0.95, 1 - scrollY / 3000)})` }} // Subtle zoom out on background
+        style={{ transform: `scale(${Math.max(0.5, 1 - scrollY / 1500)})` }} // Aggressive zoom out
       >
         {media && typeof media === 'object' && (
           <React.Fragment>

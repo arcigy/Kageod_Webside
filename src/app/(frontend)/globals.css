@@ -126,7 +126,7 @@ body::after {
 }
 /* ------------------------------- */
 
-/* --- Neon Spark Border Animation (Precise 2px) --- */
+/* --- Neon Spark Border Animation (Solid Red Base + Moving Spark) --- */
 @property --angle {
   syntax: '<angle>';
   initial-value: 0deg;
@@ -148,28 +148,26 @@ body::after {
   border-radius: var(--radius);
   pointer-events: none;
   z-index: 0;
-  overflow: hidden; /* Ensure it stays in bounds */
+  border: 1px solid oklch(60% 0.22 28deg / 0.3); /* Base dim red border */
+  overflow: hidden;
 }
 
 .hover-neon-snake::before {
   content: '';
   position: absolute;
   inset: 0;
-  padding: 2px; /* This defines the border thickness (approx 2mm) */
+  padding: 2px; /* Spark thickness */
   border-radius: inherit;
-  background: conic-gradient(from var(--angle), transparent 75%, var(--primary));
+  /* The moving spark: Transparent mostly, with a sharp bright red peak */
+  background: conic-gradient(from var(--angle), transparent 20%, oklch(70% 0.25 28deg) 50%, transparent 80%);
   -webkit-mask: 
      linear-gradient(#fff 0 0) content-box, 
      linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
   animation: spin 3s linear infinite;
-  opacity: 0;
-  transition: opacity 0.3s;
-}
-
-.group:hover .hover-neon-snake::before {
-  opacity: 1;
+  opacity: 1; /* Always visible spark on top of base border */
+  mix-blend-mode: plus-lighter;
 }
 /* ---------------------------------- */
 
