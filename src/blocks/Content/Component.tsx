@@ -35,15 +35,17 @@ export const ContentBlock: React.FC<ContentBlockProps> = (props) => {
                 })}
                 key={index}
               >
-                <div className="w-full p-10 bg-secondary/20 border border-white/5 backdrop-blur-sm transition-all duration-300 hover:border-primary/50 group relative flex flex-col justify-between rounded-lg">
+                <div className="w-full h-full relative group">
+                  <div className="absolute inset-0 hover-neon-snake pointer-events-none rounded-lg z-0" />
+                  <div className="w-full h-full p-10 bg-secondary/20 border border-white/5 backdrop-blur-sm transition-all duration-300 group-hover:bg-secondary/30 relative flex flex-col justify-between rounded-lg z-10">
                   {/* Technical corner accent */}
                   <div className="absolute top-0 right-0 w-8 h-8 border-t border-r border-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-tr-lg" />
                   
                   <div className="relative z-10 w-full">
                     {hasMapPlaceholder ? (
-                      <div className="w-full h-[400px] rounded-lg overflow-hidden border border-white/10 grayscale hover:grayscale-0 transition-all duration-500">
+                      <div className="w-full h-[400px] rounded-lg overflow-hidden border border-white/10 transition-all duration-500 shadow-2xl">
                          <iframe 
-                           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2633.585526842605!2d19.14155!3d48.5833!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47153b689a7f5a57%3A0x400f7d1c6978500!2sNeresnick%C3%A1%20cesta%203%2C%20960%2001%20Zvolen!5e0!3m2!1sen!2ssk!4v1709212345678!5m2!1sen!2ssk"
+                           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2633.606709841804!2d19.13968897762635!3d48.58289417129532!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47153b6883e00001%3A0xe744473335508c0!2sBudova%20Strabag!5e0!3m2!1sen!2ssk!4v1709212345678!5m2!1sen!2ssk"
                            width="100%" 
                            height="100%" 
                            style={{ border: 0 }} 

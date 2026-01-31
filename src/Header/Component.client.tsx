@@ -8,6 +8,7 @@ import type { Header } from '@/payload-types'
 
 import { Logo } from '@/components/Logo/Logo'
 import { HeaderNav } from './Nav'
+import { CMSLink } from '@/components/Link'
 
 interface HeaderClientProps {
   data: Header
@@ -48,14 +49,14 @@ export const HeaderClient: React.FC<HeaderClientProps> = ({ data }) => {
         <Link href="/">
           <Logo loading="eager" priority="high" className={`transition-all duration-300 ${scrolled ? 'scale-90 opacity-90' : 'scale-100'}`} />
         </Link>
-        <div className="flex items-center gap-12">
+        <div className="flex items-center gap-4">
           <HeaderNav data={data} />
-          <Link 
-            href="/kontakt" 
-            className="hidden md:flex bg-primary text-white px-8 py-3 rounded-sm font-black uppercase text-xs tracking-widest hover:bg-white hover:text-black transition-all duration-300 shadow-[0_0_20px_rgba(227,30,36,0.3)] hover:shadow-[0_0_30px_rgba(255,255,255,0.4)] transform hover:-translate-y-1"
-          >
-            Získať ponuku
-          </Link>
+          <CMSLink 
+            url="/kontakt" 
+            label="ZÍSKAŤ PONUKU"
+            appearance="default"
+            className="md:flex bg-primary text-white border border-primary px-8 py-2 rounded-sm font-black uppercase text-xs tracking-widest hover:bg-white hover:text-black hover:border-white transition-all duration-300 shadow-[0_0_20px_rgba(227,30,36,0.3)] hover:shadow-[0_0_30px_rgba(255,255,255,0.4)] transform hover:-translate-y-1"
+          />
         </div>
       </div>
     </header>

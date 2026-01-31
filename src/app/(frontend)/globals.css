@@ -126,6 +126,39 @@ body::after {
 }
 /* ------------------------------- */
 
+/* --- Neon Snake Border Animation --- */
+@keyframes neonSnake {
+  0%, 100% {
+    clip-path: inset(0 0 95% 0);
+  }
+  25% {
+    clip-path: inset(0 95% 0 0);
+  }
+  50% {
+    clip-path: inset(95% 0 0 0);
+  }
+  75% {
+    clip-path: inset(0 0 0 95%);
+  }
+}
+
+.hover-neon-snake::before {
+  content: '';
+  position: absolute;
+  top: -2px; left: -2px; right: -2px; bottom: -2px;
+  background: var(--primary);
+  z-index: -1;
+  border-radius: var(--radius);
+  animation: neonSnake 2s linear infinite;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.group:hover .hover-neon-snake::before {
+  opacity: 1;
+}
+/* ---------------------------------- */
+
 
 @theme inline {
   --color-background: var(--background);
