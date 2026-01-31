@@ -8,12 +8,15 @@ import { CMSLink } from '@/components/Link'
 import { Media } from '@/components/Media'
 import RichText from '@/components/RichText/Simple'
 
-export const HighImpactHero: React.FC<Page['hero']> = ({ links, media, richText }) => {
-  const { setHeaderTheme } = useHeaderTheme()
+  const [scrollY, setScrollY] = React.useState(0)
 
-  useEffect(() => {
-    setHeaderTheme('dark')
-  })
+  React.useEffect(() => {
+    const handleScroll = () => {
+      setScrollY(window.scrollY)
+    }
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
 
   return (
     <div
@@ -21,7 +24,10 @@ export const HighImpactHero: React.FC<Page['hero']> = ({ links, media, richText 
       data-theme="dark"
     >
       <div className="container z-10 relative pt-32 md:pt-0">
-        <div className="max-w-[62rem] animate-fade-in-up">
+        <div 
+          className="max-w-[62rem] animate-fade-in-up transition-transform duration-300 ease-out"
+          style={{ transform: `translateY(${scrollY * 0.2}px)`, opacity: Math.max(0, 1 - scrollY / 700) }}
+        >
           {/* Top Badge: Technical, clean */}
           <div className="inline-flex items-center gap-3 px-4 py-1.5 mb-10 bg-primary/10 border-l-2 border-primary">
             <span className="text-[11px] font-black uppercase tracking-[0.3em] text-primary">

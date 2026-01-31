@@ -44,15 +44,15 @@ export const HeaderClient: React.FC<HeaderClientProps> = ({ data }) => {
       }`} 
       {...(theme ? { 'data-theme': theme } : {})}
     >
-      <div className="container flex justify-between items-center">
+      <div className="container flex justify-between items-center h-full">
         <Link href="/">
-          <Logo loading="eager" priority="high" className={`transition-transform duration-300 ${scrolled ? 'scale-90' : 'scale-100'}`} />
+          <Logo loading="eager" priority="high" className={`transition-all duration-300 ${scrolled ? 'scale-90 opacity-90' : 'scale-100'}`} />
         </Link>
-        <div className="flex items-center gap-8">
+        <div className="flex items-center gap-12">
           <HeaderNav data={data} />
           <Link 
             href="/kontakt" 
-            className="hidden md:flex bg-primary text-white px-6 py-2.5 rounded-full font-medium hover:bg-primary/90 transition-all hover:scale-105 active:scale-95 shadow-lg shadow-primary/20 text-sm uppercase tracking-wider"
+            className="hidden md:flex bg-primary text-white px-8 py-3 rounded-sm font-black uppercase text-xs tracking-widest hover:bg-white hover:text-black transition-all duration-300 shadow-[0_0_20px_rgba(227,30,36,0.3)] hover:shadow-[0_0_30px_rgba(255,255,255,0.4)] transform hover:-translate-y-1"
           >
             Získať ponuku
           </Link>
