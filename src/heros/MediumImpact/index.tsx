@@ -8,51 +8,62 @@ import RichText from '@/components/RichText/Simple'
 
 export const MediumImpactHero: React.FC<Page['hero']> = ({ links, media, richText }) => {
   return (
-    <div className="py-20 md:py-32 bg-secondary/30 relative overflow-hidden">
-      <div className="absolute top-0 left-0 w-1 h-32 bg-primary animate-pulse" />
-      <div className="container mb-16 relative z-10">
-        <div className="max-w-[50rem]">
-          {richText && (
-            <div className="[&_h1]:text-4xl md:[&_h1]:text-6xl [&_h1]:font-bold [&_h1]:mb-6 [&_p]:text-lg md:[&_p]:text-xl [&_p]:text-muted-foreground [&_p]:leading-relaxed">
-              <RichText data={richText} enableGutter={false} />
-            </div>
-          )}
-
-          {Array.isArray(links) && links.length > 0 && (
-            <ul className="flex flex-wrap gap-4 mt-10">
-              {links.map(({ link }, i) => {
-                return (
-                  <li key={i}>
-                    <CMSLink 
-                      {...link} 
-                      appearance={i === 0 ? 'default' : 'outline'}
-                      className="px-6 py-3 rounded-full font-medium transition-all hover:translate-y-[-2px]" 
-                    />
-                  </li>
-                )
-              })}
-            </ul>
-          )}
-        </div>
-      </div>
+    <div className="py-24 md:py-32 bg-background relative overflow-hidden">
+      {/* Decorative background grid and glow */}
+      <div className="absolute top-0 right-0 w-1/2 h-full bg-[radial-gradient(circle_at_top_right,oklch(75%_0.15_220deg/0.05),transparent_70%)]" />
+      
       <div className="container relative z-10">
-        {media && typeof media === 'object' && (
-          <div className="relative group">
-            <div className="absolute -inset-4 bg-primary/5 rounded-[2rem] scale-95 group-hover:scale-100 transition-transform duration-500 blur-2xl" />
+        <div className="flex flex-col lg:flex-row gap-16 items-center">
+          <div className="w-full lg:w-1/2">
+             {/* Technical indicator */}
+            <div className="flex items-center gap-4 mb-8">
+              <div className="h-[1px] w-12 bg-primary" />
+              <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-primary">Služby & Riešenia</span>
+            </div>
+
+            {richText && (
+              <div className="[&_h1]:text-5xl md:[&_h1]:text-6xl [&_h1]:font-extrabold [&_h1]:tracking-tight [&_h1]:leading-tight [&_h1]:mb-8 [&_p]:text-xl [&_p]:text-foreground/60 [&_p]:leading-relaxed">
+                <RichText data={richText} enableGutter={false} />
+              </div>
+            )}
+
+            {Array.isArray(links) && links.length > 0 && (
+              <ul className="flex flex-wrap gap-4 mt-12">
+                {links.map(({ link }, i) => {
+                  return (
+                    <li key={i}>
+                      <CMSLink 
+                        {...link} 
+                        appearance={i === 0 ? 'default' : 'outline'}
+                        className="px-8 py-4 rounded-xl font-bold transition-all hover:translate-y-[-2px] hover:shadow-xl" 
+                      />
+                    </li>
+                  )
+                })}
+              </ul>
+            )}
+          </div>
+
+          <div className="w-full lg:w-1/2 relative group">
+            {/* Styled image container with technical frame */}
+            <div className="absolute -inset-4 border border-white/5 rounded-[2.5rem] pointer-events-none transition-all duration-500 group-hover:border-primary/20" />
+            <div className="absolute -inset-1 bg-gradient-to-tr from-primary/20 to-transparent blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+            
             <Media
-              className="overflow-hidden rounded-2xl shadow-2xl border border-border/50 relative"
-              imgClassName="aspect-[21/9] object-cover"
+              className="overflow-hidden rounded-[2rem] shadow-2xl border border-white/10 relative z-10"
+              imgClassName="aspect-[4/3] object-cover"
               priority
               resource={media}
             />
-            {media?.caption && (
-              <div className="mt-6 text-sm text-muted-foreground font-medium flex items-center gap-2">
-                <span className="w-8 h-[1px] bg-primary" />
+            
+            {typeof media === 'object' && media?.caption && (
+              <div className="mt-6 text-xs text-foreground/40 font-mono tracking-widest uppercase flex items-center gap-3">
+                <span className="w-2 h-2 rounded-full bg-primary/40 animate-pulse" />
                 <RichText data={media.caption} enableGutter={false} />
               </div>
             )}
           </div>
-        )}
+        </div>
       </div>
     </div>
   )

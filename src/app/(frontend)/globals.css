@@ -37,7 +37,7 @@
 @source inline("border-warning");
 @source inline("bg-warning/30");
 
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 
 @theme {
   --breakpoint-sm: 40rem;
@@ -46,46 +46,42 @@
   --breakpoint-xl: 80rem;
   --breakpoint-2xl: 86rem;
   --font-mono: var(--font-geist-mono);
-  --font-sans: 'Outfit', sans-serif;
+  --font-sans: 'Inter', sans-serif;
 }
 
 :root {
-  --background: oklch(100% 0 0deg);
-  --foreground: oklch(12% 0.02 260deg);
-  /* Deep Slate */
-  --card: oklch(99% 0.005 260deg);
-  --card-foreground: oklch(12% 0.02 260deg);
-  --popover: oklch(100% 0 0deg);
-  --popover-foreground: oklch(12% 0.02 260deg);
+  --background: oklch(10% 0.01 260deg); /* Modern Deep Background */
+  --foreground: oklch(98% 0.01 260deg);
+  --card: oklch(14% 0.02 260deg);
+  --card-foreground: oklch(98% 0.01 260deg);
+  --popover: oklch(14% 0.02 260deg);
+  --popover-foreground: oklch(98% 0.01 260deg);
   
-  /* Brand Primary: High-Precision Orange (Leica/Trimble Vibe) */
-  --primary: oklch(65% 0.2 45deg);
-  --primary-foreground: oklch(100% 0 0deg);
+  /* Primary: Electric Blue / Cyan (Modern Trend) */
+  --primary: oklch(75% 0.15 220deg);
+  --primary-rgb: 0, 212, 255; /* Approximate for shadows */
+  --primary-foreground: oklch(10% 0.01 260deg);
   
-  --secondary: oklch(94% 0.01 260deg);
-  --secondary-foreground: oklch(25% 0.02 260deg);
-  --muted: oklch(96% 0.01 260deg);
-  --muted-foreground: oklch(45% 0.02 260deg);
-  --accent: oklch(90% 0.05 45deg);
-  --accent-foreground: oklch(25% 0.2 45deg);
+  --secondary: oklch(22% 0.02 260deg);
+  --secondary-foreground: oklch(90% 0.01 260deg);
+  --muted: oklch(20% 0.02 260deg);
+  --muted-foreground: oklch(65% 0.01 260deg);
+  --accent: oklch(30% 0.1 220deg);
+  --accent-foreground: oklch(98% 0.01 260deg);
   
   --destructive: oklch(55% 0.22 25deg);
   --destructive-foreground: oklch(98% 0 0deg);
   
-  --border: oklch(90% 0.01 260deg);
-  --input: oklch(90% 0.01 260deg);
-  --ring: oklch(65% 0.2 45deg);
-  --radius: 0.5rem;
+  --border: oklch(25% 0.03 260deg);
+  --input: oklch(25% 0.03 260deg);
+  --ring: oklch(75% 0.15 220deg);
+  --radius: 0.75rem; 
 }
 
-[data-theme='dark'] {
-  --background: oklch(10% 0.02 260deg);
+/* Force dark feel for everything as requested by modern trends */
+[data-theme='light'] {
+  --background: oklch(12% 0.01 260deg);
   --foreground: oklch(98% 0.01 260deg);
-  --card: oklch(14% 0.02 260deg);
-  --card-foreground: oklch(98% 0.01 260deg);
-  --primary: oklch(65% 0.2 45deg);
-  --primary-foreground: oklch(100% 0 0deg);
-  --border: oklch(25% 0.02 260deg);
 }
 
 @theme inline {
@@ -136,10 +132,35 @@
   }
 
   body {
-    @apply bg-background text-foreground min-h-[100vh] flex flex-col font-sans antialiased;
+    @apply bg-background text-foreground min-h-[100vh] flex flex-col font-sans antialiased relative;
   }
 
-  /* Premium Typography Enhancements */
+  /* Grid background */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background-image: radial-gradient(circle at 1px 1px, oklch(100% 0 0deg / 0.03) 1px, transparent 0);
+    background-size: 40px 40px;
+    z-index: -10;
+    pointer-events: none;
+  }
+
+  /* Glow orbs */
+  body::after {
+    content: "";
+    position: fixed;
+    top: -10%;
+    right: -10%;
+    width: 60%;
+    height: 60%;
+    background: radial-gradient(circle, oklch(75% 0.15 220deg / 0.1) 0%, transparent 70%);
+    z-index: -9;
+    filter: blur(100px);
+    pointer-events: none;
+  }
+
+  /* Premium Typography Extensions */
   .prose {
     --tw-prose-headings: var(--foreground);
     --tw-prose-body: var(--foreground);
@@ -155,7 +176,7 @@
   }
 
   .prose p {
-    @apply leading-relaxed opacity-90;
+    @apply leading-relaxed opacity-80;
   }
 
   .prose ul > li::marker {
