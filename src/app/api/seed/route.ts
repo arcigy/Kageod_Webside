@@ -140,7 +140,7 @@ export async function GET() {
         ]
     })
 
-    // 2. SERVICES - Refined
+    // 2. SERVICES - Refined with detailed official copy
     await upsertPage('sluzby', {
         title: 'Naše Služby',
         hero: {
@@ -153,12 +153,12 @@ export async function GET() {
                         {
                             type: 'heading',
                             tag: 'h1',
-                            children: [{ text: 'Profesionálne Geodetické Služby', type: 'text', version: 1 }],
+                            children: [{ text: 'Kompletné Geodetické Služby', type: 'text', version: 1 }],
                             version: 1
                         },
                         {
                             type: 'paragraph',
-                            children: [{ text: 'Kompletný servis pre jednotlivcov, stavebné spoločnosti aj štátnu správu.', type: 'text', version: 1 }],
+                            children: [{ text: 'Profesionálne riešenia pre Vašu stavbu, pozemok a kataster vo Zvolene a okolí.', type: 'text', version: 1 }],
                             version: 1
                         }
                     ],
@@ -171,19 +171,12 @@ export async function GET() {
                 blockType: 'content',
                 columns: [
                     {
-                        size: 'half',
+                        size: 'full',
                         richText: {
                             root: {
                                 type: 'root',
                                 children: [
-                                    { type: 'heading', tag: 'h2', children: [{ text: 'Kataster Nehnuteľností', type: 'text', version: 1 }], version: 1 },
-                                    { type: 'paragraph', children: [{ text: 'Zabezpečujeme precízne podklady pre všetky právne úkony súvisiace s vlastníctvom a správou pozemkov.', type: 'text', version: 1 }], version: 1 },
-                                    { type: 'list', listType: 'bullet', children: [
-                                        { type: 'listitem', children: [{ text: 'Geometrické plány na rozdelenie a scelenie', type: 'text', version: 1 }], version: 1 },
-                                        { type: 'listitem', children: [{ text: 'Zameranie ku kolaudácii rodinných domov', type: 'text', version: 1 }], version: 1 },
-                                        { type: 'listitem', children: [{ text: 'Vytýčenie hraníc pozemkov a riešenie susedských sporov', type: 'text', version: 1 }], version: 1 },
-                                        { type: 'listitem', children: [{ text: 'Zamerania pre vecné bremená (právo prechodu)', type: 'text', version: 1 }], version: 1 }
-                                    ], version: 1 }
+                                    { type: 'paragraph', children: [{ text: 'V geodetickej kancelárii Kageod vo Zvolene dokážeme svojim klientom ponúknuť kompletné geodetické služby, ktoré využijete pri stavbe nového domu i pri sporoch o hranice pozemkov. Svoj servis ponúkame zákazníkom nielen priamo vo Zvolene, ale i v jeho širokom okolí. Veríme, že budete so službami našej geodetickej kancelárie spokojní!', type: 'text', version: 1 }], version: 1 }
                                 ],
                                 version: 1
                             }
@@ -195,13 +188,66 @@ export async function GET() {
                             root: {
                                 type: 'root',
                                 children: [
-                                    { type: 'heading', tag: 'h2', children: [{ text: 'Inžinierska Geodézia', type: 'text', version: 1 }], version: 1 },
-                                    { type: 'paragraph', children: [{ text: 'Technická podpora pri výstavbe od prvého výkopu až po kontrolné merania skutočného vyhotovenia.', type: 'text', version: 1 }], version: 1 },
+                                    { type: 'heading', tag: 'h2', children: [{ text: 'Vytýčenie hraníc a stavieb', type: 'text', version: 1 }], version: 1 },
+                                    { type: 'paragraph', children: [{ text: 'Pri stavbe plota, nejasnostiach ohľadom hraníc pozemkov, kúpe nehnuteľnosti alebo stavbe nového domu budete potrebovať vytýčiť zlomové body pozemku tak, ako je uvedené v katastri nehnuteľností. Polohové a výškové vytýčenie sa robí i pri plánovaných stavbách, aby bola dodržaná ich vzdialenosť od hraníc pozemku.', type: 'text', version: 1 }], version: 1 },
+                                    { type: 'paragraph', children: [{ text: 'Nepresné vytýčenie môže mať nepríjemné právne dôsledky. Dobre vytýčené hranice pozemku Vám dajú istotu, že so svojim pozemkom môžete voľne nakladať, bez toho, aby neskôr sused spochybnil Vaše vlastnícke práva.', type: 'text', version: 1 }], version: 1 }
+                                ],
+                                version: 1
+                            }
+                        }
+                    },
+                    {
+                        size: 'half',
+                        richText: {
+                            root: {
+                                type: 'root',
+                                children: [
+                                    { type: 'heading', tag: 'h2', children: [{ text: 'Zameranie stavby', type: 'text', version: 1 }], version: 1 },
+                                    { type: 'paragraph', children: [{ text: 'Bezprostredne po dokončení Vašej stavby nasleduje jej kolaudácia a zápis do katastra nehnuteľností. Podmienkou k obom je zameranie skutočného stavu Vašej stavby a jej zanesenie do geometrického plánu, ktorý následne použijete pri jednaní na stavebnom úrade.', type: 'text', version: 1 }], version: 1 },
+                                    { type: 'paragraph', children: [{ text: 'Zameranie hotovej stavby môže zahŕňať i zameranie inžinierskych sietí (plynovody, káble, vodovody a kanalizácie).', type: 'text', version: 1 }], version: 1 }
+                                ],
+                                version: 1
+                            }
+                        }
+                    },
+                    {
+                        size: 'half',
+                        richText: {
+                            root: {
+                                type: 'root',
+                                children: [
+                                    { type: 'heading', tag: 'h2', children: [{ text: 'Zmeny hraníc a scelovanie', type: 'text', version: 1 }], version: 1 },
+                                    { type: 'paragraph', children: [{ text: 'Pokiaľ sa rozhodnete rozdeliť svoje pozemky, aby ste ich časť darovali alebo predali, popr. ich chcete naopak sceliť, budete potrebovať geometrický plán od skúseného geodeta, do ktorého budú nové hranice pozemkov precízne zanesené. Práve na jeho základe je možné zaniesť zmeny do katastra.', type: 'text', version: 1 }], version: 1 }
+                                ],
+                                version: 1
+                            }
+                        }
+                    },
+                    {
+                        size: 'half',
+                        richText: {
+                            root: {
+                                type: 'root',
+                                children: [
+                                    { type: 'heading', tag: 'h2', children: [{ text: 'Vecné bremená', type: 'text', version: 1 }], version: 1 },
+                                    { type: 'paragraph', children: [{ text: 'Typickým vecným bremenom je právo chodiť alebo jazdiť po konkrétnom pozemku. Aby malo vecnú oporu, je potrebné ho podložiť nielen zmluvou, ale i geometrickým plánom, ktorý pre Vás spoľahlivo vypracujeme.', type: 'text', version: 1 }], version: 1 }
+                                ],
+                                version: 1
+                            }
+                        }
+                    },
+                    {
+                        size: 'full',
+                        richText: {
+                            root: {
+                                type: 'root',
+                                children: [
+                                    { type: 'heading', tag: 'h2', children: [{ text: 'Ďalšie geodetické služby', type: 'text', version: 1 }], version: 1 },
                                     { type: 'list', listType: 'bullet', children: [
-                                        { type: 'listitem', children: [{ text: 'Polohopisné a výškopisné podklady pre projektov', type: 'text', version: 1 }], version: 1 },
-                                        { type: 'listitem', children: [{ text: 'Vytýčenie základov a osí stavieb', type: 'text', version: 1 }], version: 1 },
-                                        { type: 'listitem', children: [{ text: 'Zameranie inžinierskych sietí pre kolaudačný proces', type: 'text', version: 1 }], version: 1 },
-                                        { type: 'listitem', children: [{ text: 'Kontrolné merania a sledovanie posunov objektov', type: 'text', version: 1 }], version: 1 }
+                                        { type: 'listitem', children: [{ text: 'Odborné poradenstvo v oblasti geodézie a katastra', type: 'text', version: 1 }], version: 1 },
+                                        { type: 'listitem', children: [{ text: 'Mapové podklady pre projekty stavieb', type: 'text', version: 1 }], version: 1 },
+                                        { type: 'listitem', children: [{ text: 'Kontrolné merania počas výstavby', type: 'text', version: 1 }], version: 1 },
+                                        { type: 'listitem', children: [{ text: 'Spracovanie podkladov pre znalecké posudky', type: 'text', version: 1 }], version: 1 }
                                     ], version: 1 }
                                 ],
                                 version: 1
